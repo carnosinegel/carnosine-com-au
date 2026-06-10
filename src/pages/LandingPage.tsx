@@ -26,7 +26,7 @@ function Nav() {
           <a href="#product" className="hover:text-[#F0EFE8] transition-colors">Product</a>
           <a href="#practitioners" className="hover:text-[#F0EFE8] transition-colors">Practitioners</a>
           <a href="#opportunity" className="hover:text-[#F0EFE8] transition-colors">Opportunity</a>
-          <a href="#team" className="hover:text-[#F0EFE8] transition-colors">Team</a>
+          <a href="#order" className="text-[#C8972A] font-semibold hover:text-[#E8B84B] transition-colors">Order</a>
           <a href="#contact" className="hover:text-[#F0EFE8] transition-colors">Contact</a>
         </div>
 
@@ -111,20 +111,27 @@ function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
           <a
-            href="#contact"
-            className="w-full sm:w-auto px-8 py-4 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-base hover:bg-[#E8B84B] transition-colors glow-gold"
+            href={LINKS.purchaseAU}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-4 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-base hover:bg-[#E8B84B] transition-colors glow-gold flex items-center justify-center gap-2"
           >
-            Register Interest →
+            <span>🇦🇺</span> Buy Now — Australia
           </a>
           <a
-            href="#about"
-            className="w-full sm:w-auto px-8 py-4 rounded border border-[#2A2A2E] text-[#888880] font-medium text-base hover:border-[#C8972A]/50 hover:text-[#F0EFE8] transition-colors"
+            href={LINKS.purchaseUSCA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-4 rounded border border-[#C8972A]/40 text-[#C8972A] font-bold text-base hover:bg-[#C8972A]/10 transition-colors flex items-center justify-center gap-2"
           >
-            Learn More
+            <span>🇺🇸🇨🇦</span> Buy Now — USA / Canada
           </a>
         </div>
+        <a href="#about" className="text-sm text-[#555550] hover:text-[#888880] transition-colors">
+          Learn more about the science ↓
+        </a>
 
         {/* Trust badges */}
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-xs text-[#555550]">
@@ -549,6 +556,69 @@ function Team() {
   );
 }
 
+function Order() {
+  return (
+    <section id="order" className="py-24 bg-[#0A0A0C]">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">Get the Gel</div>
+        <h2 className="text-4xl font-black text-[#F0EFE8] mb-4 leading-tight">
+          Ready to order?
+        </h2>
+        <p className="text-[#888880] max-w-xl mx-auto mb-12 leading-relaxed">
+          Select your region below. Australian orders go direct through us. USA and Canada orders ship from The Carnosine Lab via our affiliate link.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          {/* Australia */}
+          <a
+            href={LINKS.purchaseAU}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-8 rounded-2xl border border-[#C8972A]/30 bg-[#C8972A]/5 hover:bg-[#C8972A]/10 hover:border-[#C8972A]/60 transition-all text-left"
+          >
+            <div className="text-4xl mb-4">🇦🇺</div>
+            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#E8B84B] transition-colors">Australia</h3>
+            <p className="text-[#888880] text-sm leading-relaxed mb-6">
+              Secure checkout via PayPal. Ships from Australia. Direct from Carnosine Performance.
+            </p>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm group-hover:bg-[#E8B84B] transition-colors">
+              Buy Now — AU
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
+
+          {/* USA / Canada */}
+          <a
+            href={LINKS.purchaseUSCA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block p-8 rounded-2xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/30 hover:bg-[#C8972A]/5 transition-all text-left"
+          >
+            <div className="text-4xl mb-4">🇺🇸🇨🇦</div>
+            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#E8B84B] transition-colors">USA &amp; Canada</h3>
+            <p className="text-[#888880] text-sm leading-relaxed mb-6">
+              Ships direct from The Carnosine Lab. Same product, same science — via our affiliate link.
+            </p>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[#C8972A]/40 text-[#C8972A] font-bold text-sm group-hover:border-[#C8972A] group-hover:bg-[#C8972A]/10 transition-colors">
+              Buy Now — US/CA
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        {/* Elsewhere note */}
+        <p className="mt-8 text-xs text-[#555550]">
+          Somewhere else? <a href="#contact" className="text-[#C8972A] hover:text-[#E8B84B] transition-colors">Get in touch</a> — we'll sort you out.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const submitLead = useAction(api.leads.submitLead);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "", interest: "general" });
@@ -774,6 +844,7 @@ export function LandingPage() {
       <Practitioners />
       <Opportunity />
       <Team />
+      <Order />
       <Contact />
       <Footer />
     </div>
