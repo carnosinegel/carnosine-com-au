@@ -104,55 +104,26 @@ function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-[#888880] max-w-2xl mx-auto mb-12 leading-relaxed">
-          Carnosine Performance is the Australian home of topical carnosine — the world's only
+        <p className="text-lg sm:text-xl text-[#888880] max-w-2xl mx-auto mb-10 leading-relaxed">
+          Carnosine.com.au is the Australian home of topical carnosine — the world's only
           topical carnosine gel backed by peer-reviewed science and trusted by elite athletes,
           coaches, health practitioners, and everyday people who take recovery seriously.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href={LINKS.purchaseAU}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-base hover:bg-[#E8B84B] transition-colors glow-gold flex items-center justify-center gap-2"
+            href="#order"
+            className="w-full sm:w-auto px-10 py-4 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-base hover:bg-[#E8B84B] transition-colors glow-gold"
           >
-            <span>🇦🇺</span> Buy Now — Australia
+            Buy Now →
           </a>
           <a
-            href={LINKS.purchaseUSCA}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 rounded border border-[#C8972A]/40 text-[#C8972A] font-bold text-base hover:bg-[#C8972A]/10 transition-colors flex items-center justify-center gap-2"
+            href="#about"
+            className="text-sm text-[#555550] hover:text-[#888880] transition-colors py-4"
           >
-            <span>🇺🇸🇨🇦</span> Buy Now — USA / Canada
+            Learn more about the science ↓
           </a>
-        </div>
-        <a href="#about" className="text-sm text-[#555550] hover:text-[#888880] transition-colors">
-          Learn more about the science ↓
-        </a>
-
-        {/* Trust badges */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-xs text-[#555550]">
-          <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-[#C8972A]" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>Used by Olympic athletes</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-[#C8972A]" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>Peer-reviewed science</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-[#C8972A]" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>Trusted by health practitioners</span>
-          </div>
         </div>
       </div>
     </section>
