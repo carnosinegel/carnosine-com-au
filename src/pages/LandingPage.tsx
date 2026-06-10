@@ -429,18 +429,10 @@ function Opportunity() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
-                href={LINKS.affiliate}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors text-center"
-              >
-                Enrol as a Partner
-              </a>
-              <a
                 href={LINKS.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded border border-[#2A2A2E] text-[#888880] font-medium text-sm hover:border-[#C8972A]/50 hover:text-[#F0EFE8] transition-colors text-center"
+                className="px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors text-center"
               >
                 Talk to the Team
               </a>
