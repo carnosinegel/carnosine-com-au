@@ -6,7 +6,10 @@
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../convex/_generated/api";
 
-const CONVEX_URL = "https://small-firefly-949.convex.cloud";
+// Use prod URL when seeding production
+const CONVEX_URL = process.env.SEED_PROD === "1"
+  ? "https://woozy-bass-459.convex.cloud"
+  : "https://small-firefly-949.convex.cloud";
 if (!CONVEX_URL) throw new Error("VITE_CONVEX_URL not set");
 
 const client = new ConvexHttpClient(CONVEX_URL);
