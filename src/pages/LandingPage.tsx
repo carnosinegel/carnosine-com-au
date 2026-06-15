@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAction } from "convex/react";
+import { Link } from "react-router-dom";
 import { api } from "../../convex/_generated/api";
 import { LINKS, CONTACT } from "@/lib/constants";
 
@@ -26,6 +27,7 @@ function Nav() {
           <a href="#product" className="hover:text-[#F0EFE8] transition-colors">Product</a>
           <a href="#practitioners" className="hover:text-[#F0EFE8] transition-colors">Practitioners</a>
           <a href="#opportunity" className="hover:text-[#F0EFE8] transition-colors">Opportunity</a>
+          <Link to="/blog" className="hover:text-[#F0EFE8] transition-colors">Blog</Link>
           <a href="#order" className="text-[#C8972A] font-semibold hover:text-[#E8B84B] transition-colors">Order</a>
           <a href="#contact" className="hover:text-[#F0EFE8] transition-colors">Contact</a>
         </div>
@@ -65,6 +67,9 @@ function Nav() {
               {href.slice(1)}
             </a>
           ))}
+          <Link to="/blog" className="hover:text-[#F0EFE8] transition-colors" onClick={() => setOpen(false)}>
+            Blog
+          </Link>
           <a
             href={LINKS.calendly}
             target="_blank"

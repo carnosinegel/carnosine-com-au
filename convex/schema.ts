@@ -16,6 +16,22 @@ const schema = defineSchema({
     source: v.string(), // which site captured this lead
     createdAt: v.number(),
   }).index("by_email", ["email"]).index("by_market", ["market"]),
+
+  // Blog posts
+  blogPosts: defineTable({
+    slug: v.string(),
+    title: v.string(),
+    excerpt: v.string(),
+    content: v.string(), // HTML content
+    category: v.string(),
+    readingTimeMinutes: v.number(),
+    publishedAt: v.number(),
+    published: v.boolean(),
+    coverEmoji: v.optional(v.string()),
+  })
+    .index("by_slug", ["slug"])
+    .index("by_published", ["published"])
+    .index("by_publishedAt", ["publishedAt"]),
 });
 
 export default schema;
