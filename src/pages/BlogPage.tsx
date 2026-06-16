@@ -1,6 +1,7 @@
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Link } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 
 function formatDate(timestamp: number): string {
   return new Date(timestamp).toLocaleDateString("en-AU", {
@@ -61,6 +62,26 @@ function CategoryPill({ category }: { category: string }) {
 
 export function BlogPage() {
   const posts = useQuery(api.blog.list);
+
+  useSEO({
+    title: "Carnosine Science Blog | Carnosine Performance",
+    description:
+      "Research breakdowns, mechanism explainers, and athlete case studies. The science behind carnosine, muscle performance, and topical delivery — explained clearly.",
+    canonical: "https://www.carnosine.com.au/blog",
+    ogType: "website",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Carnosine Science Journal",
+      "description": "Science-first articles on carnosine, muscle performance, recovery, and topical delivery.",
+      "url": "https://www.carnosine.com.au/blog",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Carnosine Performance",
+        "url": "https://www.carnosine.com.au",
+      },
+    },
+  });
 
   return (
     <div className="min-h-screen bg-[#0A0A0C] text-[#F0EFE8]">

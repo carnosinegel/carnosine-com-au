@@ -1,6 +1,7 @@
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { Link, useParams } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 
 function formatDate(timestamp: number): string {
   return new Date(timestamp).toLocaleDateString("en-AU", {
@@ -42,6 +43,44 @@ function Nav() {
   );
 }
 
+function BlogPostSEO({ post }: { post: { title: string; excerpt: string; slug: string; publishedAt: number; category: string; readingTimeMinutes: number } }) {
+  const canonical = `https://www.carnosine.com.au/blog/${post.slug}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "description": post.excerpt,
+    "url": canonical,
+    "datePublished": new Date(post.publishedAt).toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "Carnosine Performance",
+      "url": "https://www.carnosine.com.au",
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Carnosine Performance",
+      "url": "https://www.carnosine.com.au",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.carnosine.com.au/favicon.png",
+      },
+    },
+    "articleSection": post.category,
+    "timeRequired": `PT${post.readingTimeMinutes}M`,
+  };
+
+  useSEO({
+    title: `${post.title} | Carnosine Performance`,
+    description: post.excerpt,
+    canonical,
+    ogType: "article",
+    schema,
+  });
+
+  return null;
+}
+
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = useQuery(api.blog.getBySlug, { slug: slug ?? "" });
@@ -65,6 +104,7 @@ export function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0C] text-[#F0EFE8]">
+      <BlogPostSEO post={post} />
       <Nav />
 
       <article className="max-w-3xl mx-auto px-6 pt-32 pb-24">

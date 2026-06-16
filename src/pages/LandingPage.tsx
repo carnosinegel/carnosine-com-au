@@ -3,6 +3,7 @@ import { useAction } from "convex/react";
 import { Link } from "react-router-dom";
 import { api } from "../../convex/_generated/api";
 import { LINKS, CONTACT } from "@/lib/constants";
+import { useSEO } from "@/hooks/useSEO";
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 
@@ -802,7 +803,63 @@ function Footer() {
 
 // ─── Main Export ────────────────────────────────────────────────────────────
 
+const LANDING_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.carnosine.com.au/#organization",
+      "name": "Carnosine Performance",
+      "url": "https://www.carnosine.com.au",
+      "logo": "https://www.carnosine.com.au/favicon.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@carnosine.com.au",
+        "contactType": "customer support",
+        "areaServed": "AU",
+        "availableLanguage": "English",
+      },
+      "sameAs": [
+        "https://instagram.com/muscle.capacity",
+        "https://thecarnosinelab.com",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.carnosine.com.au/#website",
+      "url": "https://www.carnosine.com.au",
+      "name": "Carnosine Performance",
+      "description": "Australian distributor of LactiGo — the world's only topical carnosine performance and recovery gel.",
+      "publisher": { "@id": "https://www.carnosine.com.au/#organization" },
+    },
+    {
+      "@type": "Product",
+      "name": "LactiGo Topical Carnosine Gel",
+      "description": "Topical carnosine-based performance and recovery gel. Used by 16,500+ elite athletes. Informed Sport certified.",
+      "brand": {
+        "@type": "Brand",
+        "name": "LactiGo",
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "AUD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.paypal.com/ncp/payment/82XBP7GYQVZX4",
+        "seller": { "@id": "https://www.carnosine.com.au/#organization" },
+      },
+    },
+  ],
+};
+
 export function LandingPage() {
+  useSEO({
+    title: "Carnosine Performance | LactiGo Topical Carnosine Gel — Australia",
+    description:
+      "Carnosine Performance is the Australian home of LactiGo — the world's only topical carnosine gel. Used by 16,500+ elite athletes across NHL, NFL, NBA and more. Informed Sport certified.",
+    canonical: "https://www.carnosine.com.au/",
+    schema: LANDING_SCHEMA,
+  });
+
   return (
     <div className="bg-[#0A0A0C]">
       <Nav />
