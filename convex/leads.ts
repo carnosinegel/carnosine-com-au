@@ -6,6 +6,37 @@ declare const process: { env: Record<string, string | undefined> };
 
 const NOTIFY_EMAIL = "info@carnosine.com.au";
 
+async function callViktorTool<T>(role: string, args: Record<string, unknown> = {}): Promise<T> {
+  const apiUrl = process.env.VIKTOR_SPACES_API_URL;
+  const projectName = process.env.VIKTOR_SPACES_PROJECT_NAME;
+  const projectSecret = process.env.VIKTOR_SPACES_PROJECT_SECRET;
+
+  if (!apiUrl || !projectName || !projectSecret) {
+    throw new Error("Viktor Spaces env vars not configured");
+  }
+
+  const response = await fetch(`${apiUrl}/api/viktor-spaces/tools/call`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      project_name: projectName,
+      project_secret: projectSecret,
+      role,
+      arguments: args,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${await response.text()}`);
+  }
+
+  const json = await response.json() as { success: boolean; result?: T; error?: string };
+  if (!json.success) {
+    throw new Error(json.error ?? "Tool call failed");
+  }
+  return json.result as T;
+}
+
 async function sendLeadNotificationEmail(lead: {
   name?: string;
   email: string;
@@ -15,12 +46,6 @@ async function sendLeadNotificationEmail(lead: {
   source: string;
   market: string;
 }) {
-  const apiUrl = process.env.VIKTOR_SPACES_API_URL;
-  const projectName = process.env.VIKTOR_SPACES_PROJECT_NAME;
-  const projectSecret = process.env.VIKTOR_SPACES_PROJECT_SECRET;
-
-  if (!apiUrl || !projectName || !projectSecret) return;
-
   const interestLabel: Record<string, string> = {
     product: "Product",
     opportunity: "Business Opportunity",
@@ -28,54 +53,23 @@ async function sendLeadNotificationEmail(lead: {
     general: "General Enquiry",
   };
 
-  const htmlContent = `
-    <div style="font-family: sans-serif; max-width: 520px; margin: 0 auto; padding: 24px; background: #f9f9f9;">
-      <div style="background: #0A0A0C; padding: 20px 24px; border-radius: 8px 8px 0 0;">
-        <h2 style="color: #C8972A; margin: 0; font-size: 18px;">New Lead — carnosine.com.au</h2>
-      </div>
-      <div style="background: #fff; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #eee;">
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px 0; color: #888; width: 120px; font-size: 14px;">Name</td><td style="padding: 8px 0; font-size: 14px; font-weight: 600;">${lead.name || "—"}</td></tr>
-          <tr><td style="padding: 8px 0; color: #888; font-size: 14px;">Email</td><td style="padding: 8px 0; font-size: 14px;"><a href="mailto:${lead.email}" style="color: #C8972A;">${lead.email}</a></td></tr>
-          <tr><td style="padding: 8px 0; color: #888; font-size: 14px;">Phone</td><td style="padding: 8px 0; font-size: 14px;">${lead.phone || "—"}</td></tr>
-          <tr><td style="padding: 8px 0; color: #888; font-size: 14px;">Interested in</td><td style="padding: 8px 0; font-size: 14px;">${interestLabel[lead.interest] ?? lead.interest}</td></tr>
-          <tr><td style="padding: 8px 0; color: #888; font-size: 14px;">Market</td><td style="padding: 8px 0; font-size: 14px;">${lead.market.toUpperCase()}</td></tr>
-          ${lead.message ? `<tr><td style="padding: 8px 0; color: #888; font-size: 14px; vertical-align: top;">Message</td><td style="padding: 8px 0; font-size: 14px;">${lead.message}</td></tr>` : ""}
-        </table>
-        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee; font-size: 12px; color: #aaa;">
-          Submitted via ${lead.source}
-        </div>
-      </div>
-    </div>
-  `;
-
-  const textContent = [
-    "New Lead — carnosine.com.au",
-    "",
+  const lines = [
+    `🔔 New lead from carnosine.com.au`,
+    ``,
     `Name: ${lead.name || "—"}`,
     `Email: ${lead.email}`,
     `Phone: ${lead.phone || "—"}`,
     `Interested in: ${interestLabel[lead.interest] ?? lead.interest}`,
     `Market: ${lead.market.toUpperCase()}`,
     lead.message ? `Message: ${lead.message}` : null,
-    "",
-    `Submitted via ${lead.source}`,
-  ]
-    .filter((l) => l !== null)
-    .join("\n");
+    ``,
+    `Source: ${lead.source}`,
+  ].filter((l) => l !== null).join("\n");
 
-  await fetch(`${apiUrl}/api/viktor-spaces/send-email`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      project_name: projectName,
-      project_secret: projectSecret,
-      to_email: NOTIFY_EMAIL,
-      subject: `New lead from carnosine.com.au — ${lead.name || lead.email}`,
-      html_content: htmlContent,
-      text_content: textContent,
-      email_type: "notification",
-    }),
+  await callViktorTool("coworker_send_email", {
+    to: [NOTIFY_EMAIL],
+    subject: `New lead — ${lead.name || lead.email} (carnosine.com.au)`,
+    body: lines,
   });
 }
 
