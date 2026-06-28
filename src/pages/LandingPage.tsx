@@ -803,7 +803,7 @@ function Footer() {
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
-export default function LandingPage() {
+export function LandingPage() {
   return (
     <div className="min-h-screen bg-[#0A0A0C]">
       <Nav />
