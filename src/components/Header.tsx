@@ -17,14 +17,16 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link
             to="/"
-            className="flex items-center gap-2.5 font-semibold text-lg hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">
-                M
-              </span>
-            </div>
-            <span className="hidden sm:inline">{APP_NAME}</span>
+            <img
+              src="/logo.png"
+              alt="The Carnosine Lab"
+              className="h-10 w-10 rounded-md object-contain"
+            />
+            <span className="hidden sm:inline font-bold text-lg tracking-tight text-foreground">
+              The Carnosine Lab
+            </span>
           </Link>
 
           <nav className="flex items-center gap-2">
