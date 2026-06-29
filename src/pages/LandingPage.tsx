@@ -138,7 +138,7 @@ function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-[#888880] max-w-2xl mx-auto mb-10 leading-relaxed">
-          LactiGo is the world's only topical carnosine gel — peer-reviewed science,
+          The world's only topical carnosine gel — peer-reviewed science,
           applied directly to muscle. No pills. No gut load. No waiting.
           Used by 16,500+ athletes across the NHL, NFL, NBA and Olympic programmes.
         </p>
@@ -192,8 +192,8 @@ function ScienceStrip() {
           <p className="text-[#888880] max-w-2xl mx-auto leading-relaxed">
             Carnosine is a dipeptide found naturally in human muscle. As you push harder, hydrogen ions
             accumulate — carnosine neutralises them, delaying the burn and extending your output.
-            The problem: oral supplements are destroyed before reaching muscle. LactiGo solved that
-            with topical delivery — straight through the skin, direct to the tissue.
+            The problem: oral supplements are destroyed before reaching muscle. Topical carnosine
+            solves that — straight through the skin, direct to the tissue.
           </p>
         </div>
 
@@ -254,7 +254,7 @@ function Product() {
         <div className="text-center mb-16">
           <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">The Product</div>
           <h2 className="text-4xl font-black text-[#F0EFE8] mb-4">
-            LactiGo. The performance gel.
+            The performance gel.
           </h2>
           <p className="text-[#888880] max-w-xl mx-auto">
             Apply to working muscles before training or competition. No pills, no gut load, no waiting.
@@ -268,7 +268,7 @@ function Product() {
           <div>
             <div className="text-sm font-bold text-[#F0EFE8] mb-1">Informed Sport Certified</div>
             <p className="text-xs text-[#888880] leading-relaxed">
-              Every batch of LactiGo is independently tested for banned substances under the Informed Sport programme —
+              Every batch is independently tested for banned substances under the Informed Sport programme —
               the global standard for athlete-safe supplementation. WADA compliant.
             </p>
           </div>
@@ -431,7 +431,7 @@ function Practitioners() {
             </h3>
             <p className="text-[#888880] text-sm leading-relaxed mb-6">
               We have a dedicated pathway for health professionals — product access, clinical education,
-              and a practitioner partnership programme for clinics wanting to recommend or stock LactiGo.
+              and a practitioner partnership programme for clinics wanting to recommend or stock topical carnosine.
             </p>
             <div className="space-y-3">
               <a href="#contact" className="flex items-center justify-between w-full px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors">
@@ -781,7 +781,7 @@ function Footer() {
             <img src="/logo.png" alt="The Carnosine Lab" className="h-8 w-8 rounded-md object-contain" />
             <div>
               <div className="text-sm font-bold text-[#F0EFE8]">Carnosine Performance</div>
-              <div className="text-xs text-[#555550]">Australian distributor of LactiGo · carnosine.com.au</div>
+              <div className="text-xs text-[#555550]">Topical carnosine · Australia · carnosine.com.au</div>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#555550]">
@@ -793,7 +793,7 @@ function Footer() {
         </div>
         <div className="mt-8 pt-6 border-t border-[#1A1A1E] text-center">
           <p className="text-xs text-[#333330]">
-            © {new Date().getFullYear()} Carnosine Performance Pty Ltd · Australia · Powered by LactiGo
+            © {new Date().getFullYear()} Carnosine Performance Pty Ltd · Australia
           </p>
         </div>
       </div>

@@ -37,7 +37,7 @@ async function callViktorTool<T>(role: string, args: Record<string, unknown> = {
   return json.result as T;
 }
 
-async function sendLeadNotificationEmail(lead: {
+async function sendLeadNotification(lead: {
   name?: string;
   email: string;
   phone?: string;
@@ -54,22 +54,23 @@ async function sendLeadNotificationEmail(lead: {
   };
 
   const lines = [
-    `🔔 New lead from carnosine.com.au`,
+    `*🔔 New lead — carnosine.com.au*`,
     ``,
-    `Name: ${lead.name || "—"}`,
-    `Email: ${lead.email}`,
-    `Phone: ${lead.phone || "—"}`,
-    `Interested in: ${interestLabel[lead.interest] ?? lead.interest}`,
-    `Market: ${lead.market.toUpperCase()}`,
-    lead.message ? `Message: ${lead.message}` : null,
+    `*Name:* ${lead.name || "—"}`,
+    `*Email:* ${lead.email}`,
+    `*Phone:* ${lead.phone || "—"}`,
+    `*Interested in:* ${interestLabel[lead.interest] ?? lead.interest}`,
+    `*Market:* ${lead.market.toUpperCase()}`,
+    lead.message ? `*Message:* ${lead.message}` : null,
     ``,
-    `Source: ${lead.source}`,
+    `_Source: ${lead.source}_`,
   ].filter((l) => l !== null).join("\n");
 
-  await callViktorTool("coworker_send_email", {
-    to: [NOTIFY_EMAIL],
-    subject: `New lead — ${lead.name || lead.email} (carnosine.com.au)`,
-    body: lines,
+  // Notify via Slack DM to VK
+  await callViktorTool("coworker_send_slack_message", {
+    channel_id: "D0B60NZKTG8",
+    blocks: [{ type: "markdown", text: lines }],
+    do_send: true,
   });
 }
 
@@ -119,11 +120,11 @@ export const submitLead = action({
   handler: async (ctx, args): Promise<{ success: boolean; message: string }> => {
     const result: { success: boolean; message: string } = await ctx.runMutation(internal.leads.insertLead, args);
 
-    // Send notification email (don't block on failure)
+    // Send Slack notification (don't block on failure)
     try {
-      await sendLeadNotificationEmail(args);
+      await sendLeadNotification(args);
     } catch (e) {
-      console.error("Failed to send lead notification email:", e);
+      console.error("Failed to send lead notification:", e);
     }
 
     return result;
