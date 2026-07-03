@@ -13,32 +13,7 @@
   </url>
   <!-- Blog posts -->
   <url>
-    <loc>https://www.carnosine.com.au/blog/horses-and-carnosine</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.carnosine.com.au/blog/carnosine-and-recovery</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.carnosine.com.au/blog/carnosine-vs-beta-alanine</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.carnosine.com.au/blog/how-elite-athletes-use-carnosine</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.carnosine.com.au/blog/carnosine-and-muscle-fatigue</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.carnosine.com.au/blog/why-topical-delivery</loc>
+    <loc>https://www.carnosine.com.au/blog/what-is-carnosine</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -48,7 +23,72 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.carnosine.com.au/blog/what-is-carnosine</loc>
+    <loc>https://www.carnosine.com.au/blog/carnosine-vs-beta-alanine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/how-to-increase-muscle-carnosine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/beta-alanine-tingling-paraesthesia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/why-topical-delivery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/carnosine-and-muscle-fatigue</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/carnosine-and-recovery</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/how-elite-athletes-use-carnosine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/carnosine-gel-australia-sport-performance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/lactigo-australia-review-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/topical-carnosine-australia-lactigo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/carnosine-muscle-performance-australia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/carnosine-in-endurance-sports</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/carnosine-and-brain-health</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.carnosine.com.au/blog/horses-and-carnosine</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
