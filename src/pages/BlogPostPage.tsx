@@ -163,7 +163,7 @@ export function BlogPostPage() {
               Book a Call
             </a>
             <a
-              href="https://shop.lactigo.com/?refcode=carnosineaustralia"
+              href="https://my.lactigo.com/carnosineaustralia"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-lg border border-[#C8972A] text-[#C8972A] font-semibold text-sm hover:bg-[#C8972A]/10 transition-colors"
