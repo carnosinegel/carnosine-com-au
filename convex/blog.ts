@@ -1,15 +1,21 @@
 import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-// List all published posts, newest first
+// List all published posts whose publishedAt is not in the future, newest first
 export const list = query({
   args: {},
   handler: async (ctx) => {
+    const now = Date.now();
     const posts = await ctx.db
       .query("blogPosts")
       .withIndex("by_publishedAt")
       .order("desc")
-      .filter((q) => q.eq(q.field("published"), true))
+      .filter((q) =>
+        q.and(
+          q.eq(q.field("published"), true),
+          q.lte(q.field("publishedAt"), now)
+        )
+      )
       .collect();
     return posts;
   },
