@@ -201,8 +201,8 @@ function ScienceStrip() {
           {[
             {
               icon: "⚡",
-              title: "Buffer Lactic Acid",
-              desc: "Neutralises the hydrogen ion accumulation that causes muscle failure. More buffer = more reps, faster sprints, better performance in the moments that matter.",
+              title: "Delay the Burn",
+              desc: "Supports hydrogen ion buffering during high-intensity effort — helping sustain output in the moments that matter most.",
               stat: "300% more carnosine delivery vs oral",
             },
             {
@@ -345,8 +345,8 @@ function SocialProof() {
           {[
             {
               number: "300%",
-              claim: "More carnosine delivered to muscle vs oral supplementation",
-              source: "Transdermal delivery study",
+              claim: "More carnosine delivered to muscle vs oral in published research",
+              source: "Peer-reviewed transdermal delivery study — see Science page",
             },
             {
               number: "50–100%",
@@ -390,10 +390,10 @@ function Practitioners() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
           {[
-            { icon: "🔬", title: "Fatigue Management", desc: "pH buffering for patients in chronic fatigue, post-viral, or structured rehab programmes." },
-            { icon: "🦴", title: "Rehab & Recovery", desc: "Topical application to specific muscle groups — no systemic load, faster return to function." },
-            { icon: "🧠", title: "Neuromuscular Support", desc: "Documented links to neuromuscular signalling and protection against oxidative stress." },
-            { icon: "⏳", title: "Healthy Ageing", desc: "Anti-glycation and antioxidant properties relevant to sarcopenia management and metabolic health." },
+            { icon: "🔬", title: "Fatigue & Recovery", desc: "pH buffering support for athletes and active people in structured training, rehab, or recovery programmes." },
+            { icon: "🦴", title: "Rehab & Return to Play", desc: "Topical application to specific muscle groups — no systemic load, no gut issues, targeted support where it's needed." },
+            { icon: "🧠", title: "Neuromuscular Research", desc: "Carnosine is one of the most researched dipeptides in human physiology — with published links to neuromuscular signalling and antioxidant activity." },
+            { icon: "⏳", title: "Healthy Ageing", desc: "Anti-glycation and antioxidant properties make carnosine biologically relevant to active ageing and long-term muscle health." },
           ].map((card) => (
             <div key={card.title} className="p-7 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/30 transition-colors group">
               <div className="text-3xl mb-4">{card.icon}</div>
