@@ -6,7 +6,7 @@ export const LINKS = {
   purchaseUSCA: "https://my.lactigo.com/carnosineaustralia",
   affiliate: "https://my.lactigo.com/carnosineaustralia/register",
   calendly: "https://calendly.com/carnosine/30min",
-  instagram: "https://instagram.com/muscle.capacity",
+  instagram: "https://instagram.com/thecarnosineadvantage",
   carnosinelab: "https://thecarnosinelab.com",
 };
 
