@@ -40,9 +40,9 @@
 :root {
   --radius: 0.5rem;
 
-  /* Gold accent system */
-  --gold: #C8972A;
-  --gold-light: #E8B84B;
+  /* Blue accent system */
+  --gold: #3DC8D4;
+  --gold-light: #5FD8E2;
 
   /* Dark theme as default */
   --background: #0A0A0C;
@@ -51,13 +51,13 @@
   --card-foreground: #F0EFE8;
   --popover: #161618;
   --popover-foreground: #F0EFE8;
-  --primary: #C8972A;
+  --primary: #3DC8D4;
   --primary-foreground: #0A0A0C;
   --secondary: #1E1E22;
   --secondary-foreground: #A8A89C;
   --muted: #1A1A1E;
   --muted-foreground: #888880;
-  --accent: #C8972A;
+  --accent: #3DC8D4;
   --accent-foreground: #0A0A0C;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
@@ -69,17 +69,17 @@
   --info-foreground: oklch(0.985 0 0);
   --border: #2A2A2E;
   --input: #1E1E22;
-  --ring: #C8972A;
+  --ring: #3DC8D4;
   --sidebar-width: 16rem;
   --sidebar-width-icon: 3rem;
   --sidebar: #0E0E10;
   --sidebar-foreground: #F0EFE8;
-  --sidebar-primary: #C8972A;
+  --sidebar-primary: #3DC8D4;
   --sidebar-primary-foreground: #0A0A0C;
   --sidebar-accent: #1E1E22;
   --sidebar-accent-foreground: #A8A89C;
   --sidebar-border: #2A2A2E;
-  --sidebar-ring: #C8972A;
+  --sidebar-ring: #3DC8D4;
 }
 
 /* ── Light mode overrides ─────────────────────────────────────────────────── */
@@ -90,17 +90,17 @@
   --card-foreground: #0A0A0C;
   --popover: #FFFFFF;
   --popover-foreground: #0A0A0C;
-  --primary: #C8972A;
+  --primary: #3DC8D4;
   --primary-foreground: #FFFFFF;
   --secondary: #EDEDEA;
   --secondary-foreground: #444440;
   --muted: #EDEDEA;
   --muted-foreground: #555550;
-  --accent: #C8972A;
+  --accent: #3DC8D4;
   --accent-foreground: #FFFFFF;
   --border: #DEDDD6;
   --input: #EDEDEA;
-  --ring: #C8972A;
+  --ring: #3DC8D4;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #0A0A0C;
   --sidebar-border: #DEDDD6;
@@ -170,7 +170,7 @@ body {
 
 /* Gold gradient text utility */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #C8972A, #E8B84B, #C8972A);
+  background: linear-gradient(135deg, #3DC8D4, #5FD8E2, #3DC8D4);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

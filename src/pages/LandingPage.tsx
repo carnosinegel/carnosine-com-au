@@ -67,12 +67,12 @@ function Nav() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 text-sm" style={{ color: "var(--muted-foreground)" }}>
-          <a href="#science" className="hover:text-[#C8972A] transition-colors">Science</a>
-          <a href="#product" className="hover:text-[#C8972A] transition-colors">Product</a>
-          <a href="#practitioners" className="hover:text-[#C8972A] transition-colors">Practitioners</a>
-          <a href="#opportunity" className="hover:text-[#C8972A] transition-colors">Join Us</a>
-          <Link to="/blog" className="hover:text-[#C8972A] transition-colors">Blog</Link>
-          <a href="#order" className="text-[#C8972A] font-semibold hover:text-[#E8B84B] transition-colors">Order</a>
+          <a href="#science" className="hover:text-[#3DC8D4] transition-colors">Science</a>
+          <a href="#product" className="hover:text-[#3DC8D4] transition-colors">Product</a>
+          <a href="#practitioners" className="hover:text-[#3DC8D4] transition-colors">Practitioners</a>
+          <a href="#opportunity" className="hover:text-[#3DC8D4] transition-colors">Join Us</a>
+          <Link to="/blog" className="hover:text-[#3DC8D4] transition-colors">Blog</Link>
+          <a href="#order" className="text-[#3DC8D4] font-semibold hover:text-[#5FD8E2] transition-colors">Order</a>
         </div>
 
         {/* CTA + Theme Toggle */}
@@ -82,7 +82,7 @@ function Nav() {
             href={LINKS.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm px-4 py-2 rounded border border-[#C8972A] text-[#C8972A] hover:bg-[#C8972A]/10 transition-colors"
+            className="text-sm px-4 py-2 rounded border border-[#3DC8D4] text-[#3DC8D4] hover:bg-[#3DC8D4]/10 transition-colors"
           >
             Book a Call
           </a>
@@ -113,16 +113,16 @@ function Nav() {
           style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--card)", color: "var(--muted-foreground)" }}
         >
           {["#science", "#product", "#practitioners", "#opportunity", "#order"].map((href) => (
-            <a key={href} href={href} className="hover:text-[#C8972A] transition-colors capitalize" onClick={() => setOpen(false)}>
+            <a key={href} href={href} className="hover:text-[#3DC8D4] transition-colors capitalize" onClick={() => setOpen(false)}>
               {href.slice(1)}
             </a>
           ))}
-          <Link to="/blog" className="hover:text-[#C8972A] transition-colors" onClick={() => setOpen(false)}>Blog</Link>
+          <Link to="/blog" className="hover:text-[#3DC8D4] transition-colors" onClick={() => setOpen(false)}>Blog</Link>
           <a
             href={LINKS.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 text-center py-2 rounded border border-[#C8972A] text-[#C8972A]"
+            className="mt-2 text-center py-2 rounded border border-[#3DC8D4] text-[#3DC8D4]"
             onClick={() => setOpen(false)}
           >
             Book a Call
@@ -144,7 +144,7 @@ function Hero() {
     >
       {/* No grid background */}
       {/* Amber glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#C8972A]/6 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#3DC8D4]/6 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-6 py-20 text-center">
 
@@ -159,9 +159,9 @@ function Hero() {
         </div>
 
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C8972A]/30 bg-[#C8972A]/8 mb-8">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#C8972A] animate-pulse" />
-          <span className="text-xs text-[#C8972A] font-medium tracking-widest uppercase">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#3DC8D4]/30 bg-[#3DC8D4]/8 mb-8">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#3DC8D4] animate-pulse" />
+          <span className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase">
             Informed Sport Certified · World's Only Topical Carnosine
           </span>
         </div>
@@ -176,7 +176,7 @@ function Hero() {
           <span
             className="inline-block"
             style={{
-              background: "linear-gradient(135deg, #C8972A 0%, #E8B84B 50%, #C8972A 100%)",
+              background: "linear-gradient(135deg, #3DC8D4 0%, #5FD8E2 50%, #3DC8D4 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -197,13 +197,13 @@ function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
             href="#order"
-            className="w-full sm:w-auto px-10 py-4 rounded bg-[#C8972A] text-white font-bold text-base hover:bg-[#E8B84B] transition-colors shadow-[0_0_30px_rgba(200,151,42,0.3)]"
+            className="w-full sm:w-auto px-10 py-4 rounded bg-[#3DC8D4] text-white font-bold text-base hover:bg-[#5FD8E2] transition-colors shadow-[0_0_30px_rgba(200,151,42,0.3)]"
           >
             Order Now →
           </a>
           <a
             href="#science"
-            className="w-full sm:w-auto px-8 py-4 rounded border font-medium text-base transition-colors hover:border-[#C8972A]/50 hover:text-[#C8972A]"
+            className="w-full sm:w-auto px-8 py-4 rounded border font-medium text-base transition-colors hover:border-[#3DC8D4]/50 hover:text-[#3DC8D4]"
             style={{ borderColor: "var(--border)", color: "var(--muted-foreground)" }}
           >
             See the Science ↓
@@ -219,7 +219,7 @@ function Hero() {
             { value: "40+ Years", label: "Peer-Reviewed Research" },
           ].map((stat) => (
             <div key={stat.label} className="py-4 px-3 rounded-xl" style={{ border: "1px solid var(--border)", backgroundColor: "var(--card)" }}>
-              <div className="text-sm sm:text-base font-black text-[#C8972A] leading-tight mb-1">{stat.value}</div>
+              <div className="text-sm sm:text-base font-black text-[#3DC8D4] leading-tight mb-1">{stat.value}</div>
               <div className="text-xs" style={{ color: "var(--muted-foreground)" }}>{stat.label}</div>
             </div>
           ))}
@@ -236,7 +236,7 @@ function ScienceStrip() {
     <section id="science" className="py-20 bg-[#0C0C0E] border-t border-[#1A1A1E]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-14">
-          <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">The Science</div>
+          <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">The Science</div>
           <h2 className="text-4xl font-black text-[#F0EFE8] mb-4 leading-tight">
             What is carnosine<br />and why does it matter?
           </h2>
@@ -269,11 +269,11 @@ function ScienceStrip() {
               stat: "16,500+ elite athletes worldwide",
             },
           ].map((card) => (
-            <div key={card.title} className="p-8 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/30 transition-all group">
+            <div key={card.title} className="p-8 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/30 transition-all group">
               <div className="text-3xl mb-4">{card.icon}</div>
-              <h3 className="text-lg font-bold text-[#F0EFE8] mb-3 group-hover:text-[#C8972A] transition-colors">{card.title}</h3>
+              <h3 className="text-lg font-bold text-[#F0EFE8] mb-3 group-hover:text-[#3DC8D4] transition-colors">{card.title}</h3>
               <p className="text-[#888880] text-sm leading-relaxed mb-4">{card.desc}</p>
-              <div className="text-xs text-[#C8972A] font-semibold border-t border-[#2A2A2E] pt-3">📊 {card.stat}</div>
+              <div className="text-xs text-[#3DC8D4] font-semibold border-t border-[#2A2A2E] pt-3">📊 {card.stat}</div>
             </div>
           ))}
         </div>
@@ -283,7 +283,7 @@ function ScienceStrip() {
             href={LINKS.carnosinelab}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#C8972A] text-sm font-medium hover:text-[#E8B84B] transition-colors"
+            className="inline-flex items-center gap-2 text-[#3DC8D4] text-sm font-medium hover:text-[#5FD8E2] transition-colors"
           >
             Deep-dive into the peer-reviewed research at The Carnosine Lab
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -303,7 +303,7 @@ function Product() {
     <section id="product" className="py-24 bg-[#0A0A0C]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">The Product</div>
+          <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">The Product</div>
           <h2 className="text-4xl font-black text-[#F0EFE8] mb-4">
             The performance gel.
           </h2>
@@ -326,13 +326,13 @@ function Product() {
         </div>
 
         {/* Who it's for */}
-        <div className="rounded-2xl border border-[#C8972A]/20 bg-[#C8972A]/5 p-8 md:p-12">
+        <div className="rounded-2xl border border-[#3DC8D4]/20 bg-[#3DC8D4]/5 p-8 md:p-12">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-black text-[#F0EFE8]">Who uses it?</h3>
           </div>
           <div className="space-y-6">
             <div>
-              <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase text-center mb-3">Athletes</div>
+              <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase text-center mb-3">Athletes</div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
                 {["Combat Sports", "Cyclists & Runners", "Team Sport Athletes", "Coaches & Trainers"].map((who) => (
                   <div key={who} className="py-4 px-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E]">
@@ -342,11 +342,11 @@ function Product() {
               </div>
             </div>
             <div>
-              <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase text-center mb-3">Practitioners</div>
+              <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase text-center mb-3">Practitioners</div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
                 {["Physiotherapists", "Sports Medicine", "Exercise Physiologists", "Allied Health"].map((who) => (
-                  <div key={who} className="py-4 px-3 rounded-lg bg-[#0A0A0C] border border-[#C8972A]/20">
-                    <span className="text-sm text-[#C8972A] font-medium">{who}</span>
+                  <div key={who} className="py-4 px-3 rounded-lg bg-[#0A0A0C] border border-[#3DC8D4]/20">
+                    <span className="text-sm text-[#3DC8D4] font-medium">{who}</span>
                   </div>
                 ))}
               </div>
@@ -363,7 +363,7 @@ function Product() {
             </div>
           </div>
           <div className="text-center mt-8">
-            <a href="#order" className="inline-block px-8 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors">
+            <a href="#order" className="inline-block px-8 py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm hover:bg-[#5FD8E2] transition-colors">
               Order Now →
             </a>
           </div>
@@ -385,7 +385,7 @@ function SocialProof() {
             {["NHL", "NFL", "NBA", "Olympic Athletes", "16,500+ Athletes Worldwide"].map((league, i) => (
               <span key={league} className="flex items-center gap-4">
                 {i > 0 && <span className="hidden sm:inline text-[#2A2A2E] font-light">|</span>}
-                <span className="hover:text-[#C8972A] transition-colors">{league}</span>
+                <span className="hover:text-[#3DC8D4] transition-colors">{league}</span>
               </span>
             ))}
           </div>
@@ -411,7 +411,7 @@ function SocialProof() {
             },
           ].map((item) => (
             <div key={item.number} className="text-center p-6 rounded-xl border border-[#2A2A2E] bg-[#121214]">
-              <div className="text-4xl font-black text-[#C8972A] mb-2">{item.number}</div>
+              <div className="text-4xl font-black text-[#3DC8D4] mb-2">{item.number}</div>
               <p className="text-sm text-[#F0EFE8] font-medium mb-2 leading-snug">{item.claim}</p>
               <p className="text-xs text-[#555550]">{item.source}</p>
             </div>
@@ -429,7 +429,7 @@ function Practitioners() {
     <section id="practitioners" className="py-24 bg-[#0C0C0E]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">For Practitioners</div>
+          <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">For Practitioners</div>
           <h2 className="text-4xl font-black text-[#F0EFE8] mb-4 leading-tight">
             Built for performance.<br />Relevant to practice.
           </h2>
@@ -446,9 +446,9 @@ function Practitioners() {
             { icon: "🧠", title: "Neuromuscular Research", desc: "Carnosine is one of the most researched dipeptides in human physiology — with published links to neuromuscular signalling and antioxidant activity." },
             { icon: "⏳", title: "Healthy Ageing", desc: "Anti-glycation and antioxidant properties make carnosine biologically relevant to active ageing and long-term muscle health." },
           ].map((card) => (
-            <div key={card.title} className="p-7 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/30 transition-colors group">
+            <div key={card.title} className="p-7 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/30 transition-colors group">
               <div className="text-3xl mb-4">{card.icon}</div>
-              <h3 className="text-base font-bold text-[#F0EFE8] mb-3 group-hover:text-[#C8972A] transition-colors">{card.title}</h3>
+              <h3 className="text-base font-bold text-[#F0EFE8] mb-3 group-hover:text-[#3DC8D4] transition-colors">{card.title}</h3>
               <p className="text-[#888880] text-sm leading-relaxed">{card.desc}</p>
             </div>
           ))}
@@ -475,8 +475,8 @@ function Practitioners() {
               ))}
             </div>
           </div>
-          <div className="rounded-2xl border border-[#C8972A]/20 bg-[#C8972A]/5 p-8">
-            <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">Practitioner Enquiry</div>
+          <div className="rounded-2xl border border-[#3DC8D4]/20 bg-[#3DC8D4]/5 p-8">
+            <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">Practitioner Enquiry</div>
             <h3 className="text-2xl font-black text-[#F0EFE8] mb-4 leading-snug">
               Are you a practitioner?<br />Let's talk.
             </h3>
@@ -485,10 +485,10 @@ function Practitioners() {
               and a practitioner partnership programme for clinics wanting to recommend or stock topical carnosine.
             </p>
             <div className="space-y-3">
-              <a href="#contact" className="flex items-center justify-between w-full px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors">
+              <a href="#contact" className="flex items-center justify-between w-full px-6 py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm hover:bg-[#5FD8E2] transition-colors">
                 <span>Practitioner Enquiry →</span>
               </a>
-              <a href={LINKS.carnosinelab} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full px-6 py-3 rounded border border-[#2A2A2E] text-[#888880] font-medium text-sm hover:border-[#C8972A]/50 hover:text-[#F0EFE8] transition-colors">
+              <a href={LINKS.carnosinelab} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full px-6 py-3 rounded border border-[#2A2A2E] text-[#888880] font-medium text-sm hover:border-[#3DC8D4]/50 hover:text-[#F0EFE8] transition-colors">
                 <span>Explore the Research</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -510,7 +510,7 @@ function Opportunity() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">The Opportunity</div>
+            <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">The Opportunity</div>
             <h2 className="text-4xl font-black text-[#F0EFE8] mb-6 leading-tight">
               Join the team.<br />Own the market.
             </h2>
@@ -529,8 +529,8 @@ function Opportunity() {
                 "Ground floor in the Australian market",
               ].map((point) => (
                 <div key={point} className="flex items-start gap-3">
-                  <div className="mt-0.5 w-5 h-5 rounded-full border border-[#C8972A] flex items-center justify-center flex-shrink-0">
-                    <svg className="w-3 h-3 text-[#C8972A]" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="mt-0.5 w-5 h-5 rounded-full border border-[#3DC8D4] flex items-center justify-center flex-shrink-0">
+                    <svg className="w-3 h-3 text-[#3DC8D4]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
@@ -542,21 +542,21 @@ function Opportunity() {
               href={LINKS.calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors inline-block"
+              className="px-6 py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm hover:bg-[#5FD8E2] transition-colors inline-block"
             >
               Talk to the Team
             </a>
           </div>
 
           <div className="rounded-2xl border border-[#2A2A2E] bg-[#121214] p-8">
-            <div className="text-4xl mb-4 text-[#C8972A]">"</div>
+            <div className="text-4xl mb-4 text-[#3DC8D4]">"</div>
             <p className="text-[#F0EFE8] text-lg font-medium leading-relaxed mb-6">
               The science is 40 years deep. The delivery is new. The Australian market is
               open. We're at the start of something — and we're looking for people who
               see it before everyone else does.
             </p>
             <div className="flex items-center gap-3 pt-4 border-t border-[#2A2A2E]">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C8972A] to-[#E8B84B] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3DC8D4] to-[#5FD8E2] flex items-center justify-center">
                 <span className="text-[#0A0A0C] font-black text-sm">V</span>
               </div>
               <div>
@@ -577,7 +577,7 @@ function Order() {
   return (
     <section id="order" className="py-24 bg-[#0C0C0E]">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">Get the Gel</div>
+        <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">Get the Gel</div>
         <h2 className="text-4xl font-black text-[#F0EFE8] mb-4 leading-tight">
           Ready to order?
         </h2>
@@ -590,14 +590,14 @@ function Order() {
             href={LINKS.purchaseAU}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block p-8 rounded-2xl border border-[#C8972A]/30 bg-[#C8972A]/5 hover:bg-[#C8972A]/10 hover:border-[#C8972A]/60 transition-all text-left"
+            className="group block p-8 rounded-2xl border border-[#3DC8D4]/30 bg-[#3DC8D4]/5 hover:bg-[#3DC8D4]/10 hover:border-[#3DC8D4]/60 transition-all text-left"
           >
             <div className="text-4xl mb-4">🇦🇺</div>
-            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#E8B84B] transition-colors">Australia</h3>
+            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#5FD8E2] transition-colors">Australia</h3>
             <p className="text-[#888880] text-sm leading-relaxed mb-6">
               Secure checkout via PayPal. Ships from Australia. Direct from Carnosine Performance.
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm group-hover:bg-[#E8B84B] transition-colors">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm group-hover:bg-[#5FD8E2] transition-colors">
               Buy Now — AU
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -609,14 +609,14 @@ function Order() {
             href={LINKS.purchaseUSCA}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block p-8 rounded-2xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/30 hover:bg-[#C8972A]/5 transition-all text-left"
+            className="group block p-8 rounded-2xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/30 hover:bg-[#3DC8D4]/5 transition-all text-left"
           >
             <div className="text-4xl mb-4">🇺🇸🇨🇦</div>
-            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#E8B84B] transition-colors">USA &amp; Canada</h3>
+            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#5FD8E2] transition-colors">USA &amp; Canada</h3>
             <p className="text-[#888880] text-sm leading-relaxed mb-6">
               Ships direct from The Carnosine Lab. Same product, same science — via our affiliate link.
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[#C8972A]/40 text-[#C8972A] font-bold text-sm group-hover:border-[#C8972A] transition-colors">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[#3DC8D4]/40 text-[#3DC8D4] font-bold text-sm group-hover:border-[#3DC8D4] transition-colors">
               Buy Now — US/CA
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -626,7 +626,7 @@ function Order() {
         </div>
 
         <p className="mt-8 text-xs text-[#555550]">
-          Somewhere else? <a href="#contact" className="text-[#C8972A] hover:text-[#E8B84B] transition-colors">Get in touch</a> — we'll sort you out.
+          Somewhere else? <a href="#contact" className="text-[#3DC8D4] hover:text-[#5FD8E2] transition-colors">Get in touch</a> — we'll sort you out.
         </p>
       </div>
     </section>
@@ -666,7 +666,7 @@ function Contact() {
         <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left */}
           <div>
-            <div className="text-xs text-[#C8972A] font-medium tracking-widest uppercase mb-4">Get in Touch</div>
+            <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">Get in Touch</div>
             <h2 className="text-4xl font-black text-[#F0EFE8] mb-6 leading-tight">
               Ready to talk?
             </h2>
@@ -679,15 +679,15 @@ function Contact() {
                 href={LINKS.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/40 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/40 transition-colors group"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#C8972A]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#C8972A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-lg bg-[#3DC8D4]/10 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-[#3DC8D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#C8972A] transition-colors">Book a 30min Call</div>
+                  <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#3DC8D4] transition-colors">Book a 30min Call</div>
                   <div className="text-[#555550] text-xs">Zoom · calendly.com/carnosine</div>
                 </div>
                 <svg className="w-4 h-4 text-[#555550] ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -696,15 +696,15 @@ function Contact() {
               </a>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="flex items-center gap-4 p-4 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/40 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/40 transition-colors group"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#C8972A]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#C8972A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-lg bg-[#3DC8D4]/10 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-[#3DC8D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#C8972A] transition-colors">Email Us</div>
+                  <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#3DC8D4] transition-colors">Email Us</div>
                   <div className="text-[#555550] text-xs">{CONTACT.email}</div>
                 </div>
                 <svg className="w-4 h-4 text-[#555550] ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -715,17 +715,17 @@ function Contact() {
                 href={LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#C8972A]/40 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/40 transition-colors group"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#C8972A]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#C8972A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-lg bg-[#3DC8D4]/10 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-[#3DC8D4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#C8972A] transition-colors">Follow on Instagram</div>
+                  <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#3DC8D4] transition-colors">Follow on Instagram</div>
                   <div className="text-[#555550] text-xs">@thecarnosineadvantage</div>
                 </div>
                 <svg className="w-4 h-4 text-[#555550] ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -753,7 +753,7 @@ function Contact() {
                     placeholder="Your name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#C8972A]/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#3DC8D4]/50 transition-colors"
                   />
                 </div>
                 <div>
@@ -764,7 +764,7 @@ function Contact() {
                     placeholder="your@email.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#C8972A]/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#3DC8D4]/50 transition-colors"
                   />
                 </div>
                 <div>
@@ -774,7 +774,7 @@ function Contact() {
                     placeholder="+61 4xx xxx xxx"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#C8972A]/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#3DC8D4]/50 transition-colors"
                   />
                 </div>
                 <div>
@@ -782,7 +782,7 @@ function Contact() {
                   <select
                     value={form.interest}
                     onChange={(e) => setForm({ ...form, interest: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] text-sm focus:outline-none focus:border-[#C8972A]/50 transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] text-sm focus:outline-none focus:border-[#3DC8D4]/50 transition-colors"
                   >
                     <option value="general">Trying the product</option>
                     <option value="practitioner">Practitioner partnership</option>
@@ -799,7 +799,7 @@ function Contact() {
                     placeholder="Tell us a bit about yourself..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#C8972A]/50 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-lg bg-[#0A0A0C] border border-[#2A2A2E] text-[#F0EFE8] placeholder-[#555550] text-sm focus:outline-none focus:border-[#3DC8D4]/50 transition-colors resize-none"
                   />
                 </div>
                 {status === "error" && (
@@ -808,7 +808,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full py-3 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-sm hover:bg-[#E8B84B] transition-colors disabled:opacity-50"
+                  className="w-full py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm hover:bg-[#5FD8E2] transition-colors disabled:opacity-50"
                 >
                   {status === "sending" ? "Sending..." : "Send Message →"}
                 </button>
@@ -838,10 +838,10 @@ function Footer() {
             />
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs" style={{ color: "var(--muted-foreground)" }}>
-            <Link to="/blog" className="hover:text-[#C8972A] transition-colors">Blog</Link>
-            <a href={LINKS.carnosinelab} target="_blank" rel="noopener noreferrer" className="hover:text-[#C8972A] transition-colors">The Carnosine Lab</a>
-            <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#C8972A] transition-colors">Instagram</a>
-            <a href={`mailto:${CONTACT.email}`} className="hover:text-[#C8972A] transition-colors">{CONTACT.email}</a>
+            <Link to="/blog" className="hover:text-[#3DC8D4] transition-colors">Blog</Link>
+            <a href={LINKS.carnosinelab} target="_blank" rel="noopener noreferrer" className="hover:text-[#3DC8D4] transition-colors">The Carnosine Lab</a>
+            <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#3DC8D4] transition-colors">Instagram</a>
+            <a href={`mailto:${CONTACT.email}`} className="hover:text-[#3DC8D4] transition-colors">{CONTACT.email}</a>
           </div>
         </div>
         <div className="mt-8 pt-6 text-center" style={{ borderTop: "1px solid var(--border)" }}>
