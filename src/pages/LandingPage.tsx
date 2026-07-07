@@ -142,13 +142,7 @@ function Hero() {
       className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
       style={{ backgroundColor: "var(--background)" }}
     >
-      {/* Grid background — hidden in light mode via CSS */}
-      <div
-        className="landing-grid absolute inset-0 bg-[size:48px_48px]"
-        style={{
-          backgroundImage: "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)",
-        }}
-      />
+      {/* No grid background */}
       {/* Amber glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#C8972A]/6 rounded-full blur-[140px] pointer-events-none" />
 
@@ -732,7 +726,7 @@ function Contact() {
                 </div>
                 <div>
                   <div className="text-[#F0EFE8] text-sm font-semibold group-hover:text-[#C8972A] transition-colors">Follow on Instagram</div>
-                  <div className="text-[#555550] text-xs">@muscle.capacity</div>
+                  <div className="text-[#555550] text-xs">@thecarnosineadvantage</div>
                 </div>
                 <svg className="w-4 h-4 text-[#555550] ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

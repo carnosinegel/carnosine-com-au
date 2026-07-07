@@ -146,9 +146,13 @@
   display: none !important;
 }
 
-/* Logo blend mode — makes white bg transparent on light backgrounds */
+/* Logo blend mode — makes white bg transparent on light, dark bg transparent on dark */
 :root.light-mode .logo-img {
   mix-blend-mode: multiply;
+}
+
+:root:not(.light-mode) .logo-img {
+  mix-blend-mode: screen;
 }
 
 * {
