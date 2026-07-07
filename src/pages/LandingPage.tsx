@@ -3,38 +3,81 @@ import { useAction } from "convex/react";
 import { Link } from "react-router-dom";
 import { api } from "../../convex/_generated/api";
 import { LINKS, CONTACT } from "@/lib/constants";
+import { useTheme } from "@/context/ThemeContext";
+
+// ─── Theme Toggle ────────────────────────────────────────────────────────────
+
+function ThemeToggle() {
+  const { theme, toggle } = useTheme();
+  return (
+    <button
+      onClick={toggle}
+      aria-label="Toggle light/dark mode"
+      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium transition-all duration-200"
+      style={{
+        borderColor: "var(--border)",
+        color: "var(--muted-foreground)",
+        backgroundColor: "var(--muted)",
+      }}
+    >
+      {theme === "dark" ? (
+        <>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+          </svg>
+          Light
+        </>
+      ) : (
+        <>
+          <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+          Dark
+        </>
+      )}
+    </button>
+  );
+}
 
 // ─── Nav ────────────────────────────────────────────────────────────────────
 
 function Nav() {
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
+  const logoSrc = theme === "dark" ? "/logo-dark.png" : "/logo-light.png";
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#0A0A0C]/90 backdrop-blur-md">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
+      style={{
+        borderBottom: "1px solid var(--border)",
+        backgroundColor: theme === "dark" ? "rgba(10,10,12,0.92)" : "rgba(247,246,242,0.92)",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 group">
           <img
-            src="/logo.png"
-            alt="The Carnosine Lab"
-            className="h-9 w-9 rounded-md object-contain"
+            src={logoSrc}
+            alt="The Carnosine Advantage"
+            className="h-8 object-contain"
+            style={{ maxWidth: "180px" }}
           />
-          <span className="font-bold text-[#F0EFE8] text-sm tracking-wide hidden sm:inline">
-            Carnosine Performance
-          </span>
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-[#888880]">
-          <a href="#science" className="hover:text-[#F0EFE8] transition-colors">Science</a>
-          <a href="#product" className="hover:text-[#F0EFE8] transition-colors">Product</a>
-          <a href="#practitioners" className="hover:text-[#F0EFE8] transition-colors">Practitioners</a>
-          <a href="#opportunity" className="hover:text-[#F0EFE8] transition-colors">Join Us</a>
-          <Link to="/blog" className="hover:text-[#F0EFE8] transition-colors">Blog</Link>
+        <div className="hidden md:flex items-center gap-8 text-sm" style={{ color: "var(--muted-foreground)" }}>
+          <a href="#science" className="hover:text-[#C8972A] transition-colors">Science</a>
+          <a href="#product" className="hover:text-[#C8972A] transition-colors">Product</a>
+          <a href="#practitioners" className="hover:text-[#C8972A] transition-colors">Practitioners</a>
+          <a href="#opportunity" className="hover:text-[#C8972A] transition-colors">Join Us</a>
+          <Link to="/blog" className="hover:text-[#C8972A] transition-colors">Blog</Link>
           <a href="#order" className="text-[#C8972A] font-semibold hover:text-[#E8B84B] transition-colors">Order</a>
         </div>
 
-        {/* CTA */}
+        {/* CTA + Theme Toggle */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href={LINKS.calendly}
             target="_blank"
@@ -45,30 +88,36 @@ function Nav() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-[#888880] hover:text-[#F0EFE8]"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {open
-              ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            }
-          </svg>
-        </button>
+        {/* Mobile: theme toggle + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            style={{ color: "var(--muted-foreground)" }}
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {open
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              }
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-white/5 bg-[#0E0E10] px-6 py-4 flex flex-col gap-4 text-sm text-[#888880]">
+        <div
+          className="md:hidden px-6 py-4 flex flex-col gap-4 text-sm"
+          style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--card)", color: "var(--muted-foreground)" }}
+        >
           {["#science", "#product", "#practitioners", "#opportunity", "#order"].map((href) => (
-            <a key={href} href={href} className="hover:text-[#F0EFE8] transition-colors capitalize" onClick={() => setOpen(false)}>
+            <a key={href} href={href} className="hover:text-[#C8972A] transition-colors capitalize" onClick={() => setOpen(false)}>
               {href.slice(1)}
             </a>
           ))}
-          <Link to="/blog" className="hover:text-[#F0EFE8] transition-colors" onClick={() => setOpen(false)}>Blog</Link>
+          <Link to="/blog" className="hover:text-[#C8972A] transition-colors" onClick={() => setOpen(false)}>Blog</Link>
           <a
             href={LINKS.calendly}
             target="_blank"
@@ -87,28 +136,34 @@ function Nav() {
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
 function Hero() {
+  const { theme } = useTheme();
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#0A0A0C] pt-16 overflow-hidden">
+    <section
+      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
+      style={{ backgroundColor: "var(--background)" }}
+    >
       {/* Grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:48px_48px]" />
+      <div
+        className="absolute inset-0 bg-[size:48px_48px]"
+        style={{
+          backgroundImage: theme === "dark"
+            ? "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)"
+            : "linear-gradient(to right,#00000008 1px,transparent 1px),linear-gradient(to bottom,#00000008 1px,transparent 1px)",
+        }}
+      />
       {/* Amber glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#C8972A]/6 rounded-full blur-[140px] pointer-events-none" />
-      {/* Teal glow (Carnosine Lab brand) */}
-      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-[#00C2CB]/4 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative max-w-6xl mx-auto px-6 py-20 text-center">
 
-        {/* Logo mark — large, proud */}
-        <div className="flex items-center justify-center gap-4 mb-10">
+        {/* Hero logo */}
+        <div className="flex justify-center mb-10">
           <img
-            src="/logo.png"
-            alt="The Carnosine Lab"
-            className="w-20 h-20 rounded-2xl object-contain shadow-[0_0_40px_rgba(200,151,42,0.25)]"
+            src={theme === "dark" ? "/logo-dark.png" : "/logo-light.png"}
+            alt="The Carnosine Advantage"
+            className="h-20 object-contain"
+            style={{ maxWidth: "320px" }}
           />
-          <div className="text-left">
-            <div className="text-2xl font-black text-[#F0EFE8] tracking-tight leading-none">The Carnosine Lab</div>
-            <div className="text-sm text-[#C8972A] font-medium tracking-wider mt-1">AUSTRALIA</div>
-          </div>
         </div>
 
         {/* Badge */}
@@ -120,7 +175,10 @@ function Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-[#F0EFE8] leading-[1.05] mb-6">
+        <h1
+          className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6"
+          style={{ color: "var(--foreground)" }}
+        >
           The molecule elite<br />
           athletes rely on.{" "}
           <span
@@ -137,7 +195,7 @@ function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-[#888880] max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
           The world's only topical carnosine gel — peer-reviewed science,
           applied directly to muscle. No pills. No gut load. No waiting.
           Used by 16,500+ athletes across the NHL, NFL, NBA and Olympic programmes.
@@ -147,13 +205,14 @@ function Hero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
             href="#order"
-            className="w-full sm:w-auto px-10 py-4 rounded bg-[#C8972A] text-[#0A0A0C] font-bold text-base hover:bg-[#E8B84B] transition-colors shadow-[0_0_30px_rgba(200,151,42,0.3)]"
+            className="w-full sm:w-auto px-10 py-4 rounded bg-[#C8972A] text-white font-bold text-base hover:bg-[#E8B84B] transition-colors shadow-[0_0_30px_rgba(200,151,42,0.3)]"
           >
             Order Now →
           </a>
           <a
             href="#science"
-            className="w-full sm:w-auto px-8 py-4 rounded border border-[#2A2A2E] text-[#888880] font-medium text-base hover:border-[#C8972A]/50 hover:text-[#F0EFE8] transition-colors"
+            className="w-full sm:w-auto px-8 py-4 rounded border font-medium text-base transition-colors hover:border-[#C8972A]/50 hover:text-[#C8972A]"
+            style={{ borderColor: "var(--border)", color: "var(--muted-foreground)" }}
           >
             See the Science ↓
           </a>
@@ -167,9 +226,9 @@ function Hero() {
             { value: "Informed Sport", label: "Certified Safe" },
             { value: "40+ Years", label: "Peer-Reviewed Research" },
           ].map((stat) => (
-            <div key={stat.label} className="py-4 px-3 rounded-xl border border-[#2A2A2E] bg-[#121214]/80">
+            <div key={stat.label} className="py-4 px-3 rounded-xl" style={{ border: "1px solid var(--border)", backgroundColor: "var(--card)" }}>
               <div className="text-sm sm:text-base font-black text-[#C8972A] leading-tight mb-1">{stat.value}</div>
-              <div className="text-xs text-[#555550]">{stat.label}</div>
+              <div className="text-xs" style={{ color: "var(--muted-foreground)" }}>{stat.label}</div>
             </div>
           ))}
         </div>
@@ -773,26 +832,28 @@ function Contact() {
 // ─── Footer ──────────────────────────────────────────────────────────────────
 
 function Footer() {
+  const { theme } = useTheme();
   return (
-    <footer className="border-t border-[#1A1A1E] bg-[#080808] py-12">
+    <footer className="py-12" style={{ borderTop: "1px solid var(--border)", backgroundColor: "var(--card)" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="The Carnosine Lab" className="h-8 w-8 rounded-md object-contain" />
-            <div>
-              <div className="text-sm font-bold text-[#F0EFE8]">Carnosine Performance</div>
-              <div className="text-xs text-[#555550]">Topical carnosine · Australia · carnosine.com.au</div>
-            </div>
+            <img
+              src={theme === "dark" ? "/logo-dark.png" : "/logo-light.png"}
+              alt="The Carnosine Advantage"
+              className="h-7 object-contain"
+              style={{ maxWidth: "160px" }}
+            />
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#555550]">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-xs" style={{ color: "var(--muted-foreground)" }}>
             <Link to="/blog" className="hover:text-[#C8972A] transition-colors">Blog</Link>
             <a href={LINKS.carnosinelab} target="_blank" rel="noopener noreferrer" className="hover:text-[#C8972A] transition-colors">The Carnosine Lab</a>
             <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#C8972A] transition-colors">Instagram</a>
             <a href={`mailto:${CONTACT.email}`} className="hover:text-[#C8972A] transition-colors">{CONTACT.email}</a>
           </div>
         </div>
-        <div className="mt-8 pt-6 border-t border-[#1A1A1E] text-center">
-          <p className="text-xs text-[#333330]">
+        <div className="mt-8 pt-6 text-center" style={{ borderTop: "1px solid var(--border)" }}>
+          <p className="text-xs" style={{ color: "var(--muted-foreground)", opacity: 0.5 }}>
             © {new Date().getFullYear()} Carnosine Performance Pty Ltd · Australia
           </p>
         </div>
@@ -805,7 +866,7 @@ function Footer() {
 
 export function LandingPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0C]">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--background)" }}>
       <Nav />
       <Hero />
       <ScienceStrip />
