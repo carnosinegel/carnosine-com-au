@@ -54,14 +54,14 @@ function Nav() {
         backgroundColor: theme === "dark" ? "rgba(10,10,12,0.92)" : "rgba(247,246,242,0.92)",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 group">
           <img
             src={logoSrc}
             alt="The Carnosine Advantage"
             className="logo-img object-contain"
-            style={{ height: "36px", maxWidth: "200px" }}
+            style={{ height: "56px", maxWidth: "260px" }}
           />
         </a>
 
