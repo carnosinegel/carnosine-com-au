@@ -84,7 +84,7 @@
 
 /* ── Light mode overrides ─────────────────────────────────────────────────── */
 :root.light-mode {
-  --background: #F7F6F2;
+  --background: #F5F4F0;
   --foreground: #0A0A0C;
   --card: #FFFFFF;
   --card-foreground: #0A0A0C;
@@ -95,15 +95,60 @@
   --secondary: #EDEDEA;
   --secondary-foreground: #444440;
   --muted: #EDEDEA;
-  --muted-foreground: #666660;
+  --muted-foreground: #555550;
   --accent: #C8972A;
   --accent-foreground: #FFFFFF;
-  --border: #E0DFD8;
+  --border: #DEDDD6;
   --input: #EDEDEA;
   --ring: #C8972A;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #0A0A0C;
-  --sidebar-border: #E0DFD8;
+  --sidebar-border: #DEDDD6;
+}
+
+/* ── Light mode: override all hardcoded dark Tailwind classes site-wide ─────── */
+:root.light-mode [class*="bg-\[#0A0A0C\]"],
+:root.light-mode [class*="bg-\[#0C0C0E\]"],
+:root.light-mode [class*="bg-\[#0E0E10\]"],
+:root.light-mode [class*="bg-\[#080808\]"],
+:root.light-mode [class*="bg-\[#121214\]"],
+:root.light-mode [class*="bg-\[#1A1A1E\]"],
+:root.light-mode [class*="bg-\[#161618\]"] {
+  background-color: var(--background) !important;
+}
+
+:root.light-mode [class*="text-\[#F0EFE8\]"],
+:root.light-mode [class*="text-\[#E0DFD8\]"],
+:root.light-mode [class*="text-\[#C8C7C0\]"] {
+  color: var(--foreground) !important;
+}
+
+:root.light-mode [class*="text-\[#888880\]"],
+:root.light-mode [class*="text-\[#555550\]"],
+:root.light-mode [class*="text-\[#333330\]"],
+:root.light-mode [class*="text-\[#A8A89C\]"] {
+  color: var(--muted-foreground) !important;
+}
+
+:root.light-mode [class*="border-\[#2A2A2E\]"],
+:root.light-mode [class*="border-\[#1A1A1E\]"],
+:root.light-mode [class*="border-\[#0E0E10\]"] {
+  border-color: var(--border) !important;
+}
+
+:root.light-mode [class*="border-white\/5"],
+:root.light-mode [class*="border-white\/10"] {
+  border-color: var(--border) !important;
+}
+
+/* Hide the dot grid in light mode */
+:root.light-mode .landing-grid {
+  display: none !important;
+}
+
+/* Logo blend mode — makes white bg transparent on light backgrounds */
+:root.light-mode .logo-img {
+  mix-blend-mode: multiply;
 }
 
 * {

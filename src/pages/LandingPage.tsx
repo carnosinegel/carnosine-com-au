@@ -60,8 +60,8 @@ function Nav() {
           <img
             src={logoSrc}
             alt="The Carnosine Advantage"
-            className="h-8 object-contain"
-            style={{ maxWidth: "180px" }}
+            className="logo-img object-contain"
+            style={{ height: "36px", maxWidth: "200px" }}
           />
         </a>
 
@@ -142,13 +142,11 @@ function Hero() {
       className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
       style={{ backgroundColor: "var(--background)" }}
     >
-      {/* Grid background */}
+      {/* Grid background — hidden in light mode via CSS */}
       <div
-        className="absolute inset-0 bg-[size:48px_48px]"
+        className="landing-grid absolute inset-0 bg-[size:48px_48px]"
         style={{
-          backgroundImage: theme === "dark"
-            ? "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)"
-            : "linear-gradient(to right,#00000008 1px,transparent 1px),linear-gradient(to bottom,#00000008 1px,transparent 1px)",
+          backgroundImage: "linear-gradient(to right,#ffffff08 1px,transparent 1px),linear-gradient(to bottom,#ffffff08 1px,transparent 1px)",
         }}
       />
       {/* Amber glow */}
@@ -161,8 +159,8 @@ function Hero() {
           <img
             src={theme === "dark" ? "/logo-dark.png" : "/logo-light.png"}
             alt="The Carnosine Advantage"
-            className="h-20 object-contain"
-            style={{ maxWidth: "320px" }}
+            className="logo-img object-contain"
+            style={{ height: "100px", maxWidth: "420px" }}
           />
         </div>
 
@@ -841,8 +839,8 @@ function Footer() {
             <img
               src={theme === "dark" ? "/logo-dark.png" : "/logo-light.png"}
               alt="The Carnosine Advantage"
-              className="h-7 object-contain"
-              style={{ maxWidth: "160px" }}
+              className="logo-img object-contain"
+              style={{ height: "32px", maxWidth: "160px" }}
             />
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs" style={{ color: "var(--muted-foreground)" }}>
