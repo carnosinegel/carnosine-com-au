@@ -188,10 +188,11 @@ function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
-          The world's only patented topical carnosine gel — peer-reviewed science,
-          applied directly to muscle. No pills. No gut load. No waiting.
-          Used by 16,500+ athletes across the NHL, NFL, NBA and Olympic programmes
-          — now available to everyday people who simply want to keep moving.
+          The world's only patented topical carnosine gel — backed by peer-reviewed
+          research and applied to the skin over the area you want to support.
+          <br />
+          Trusted by professional athletes — now available to everyday people who
+          simply want to keep moving.
         </p>
 
         {/* CTAs */}
