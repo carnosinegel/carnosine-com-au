@@ -6,3 +6,4 @@ export { LoginPage } from "./LoginPage";
 export { SettingsPage } from "./SettingsPage";
 export { SignupPage } from "./SignupPage";
 export { TopicalCarnosineGelPage } from "./TopicalCarnosineGelPage";
+export { LactigoAustraliaPage } from "./LactigoAustraliaPage";
