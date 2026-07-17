@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { BlogPage, BlogPostPage, LandingPage } from "./pages";
+import { BlogPage, BlogPostPage, LandingPage, TopicalCarnosineGelPage } from "./pages";
 import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/topical-carnosine-gel-australia" element={<TopicalCarnosineGelPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </ErrorBoundary>

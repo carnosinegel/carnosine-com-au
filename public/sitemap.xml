@@ -11,6 +11,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- Landing pages -->
+  <url>
+    <loc>https://www.carnosine.com.au/topical-carnosine-gel-australia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <!-- Blog posts -->
   <url>
     <loc>https://www.carnosine.com.au/blog/what-is-carnosine</loc>
