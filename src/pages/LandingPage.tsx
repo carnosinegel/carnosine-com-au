@@ -162,7 +162,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#3DC8D4]/30 bg-[#3DC8D4]/8 mb-8">
           <div className="w-1.5 h-1.5 rounded-full bg-[#3DC8D4] animate-pulse" />
           <span className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase">
-            Informed Sport Certified · World's Only Topical Carnosine
+            World's Only Patented Topical Carnosine
           </span>
         </div>
 
@@ -188,10 +188,11 @@ function Hero() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--muted-foreground)" }}>
-          The world's only patented topical carnosine gel — backed by peer-reviewed
-          research and applied to the skin over the area you want to support.
+          The world's only patented topical carnosine gel.
           <br />
-          Trusted by professional athletes — now available to everyday people who
+          Backed by peer-reviewed research and applied to the skin over the area you want to support.
+          <br />
+          Trusted by professional athletes, now available to everyday people who
           simply want to keep moving.
         </p>
 
