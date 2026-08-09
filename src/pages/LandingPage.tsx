@@ -585,10 +585,10 @@ function Order() {
           Ready to order?
         </h2>
         <p className="text-[#888880] max-w-xl mx-auto mb-12 leading-relaxed">
-          Australian orders go direct through us. USA and Canada orders ship from The Carnosine Lab via our affiliate link.
+          Australia, USA &amp; Canada all order through the official LactiGo shop — direct shipping, same product, same science.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <a
             href={LINKS.purchaseAU}
             target="_blank"
@@ -598,7 +598,7 @@ function Order() {
             <div className="text-4xl mb-4">🇦🇺</div>
             <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#5FD8E2] transition-colors">Australia</h3>
             <p className="text-[#888880] text-sm leading-relaxed mb-6">
-              Secure checkout via PayPal. Ships from Australia. Direct from Carnosine Performance.
+              Direct shipping to Australia via the official LactiGo shop.
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm group-hover:bg-[#5FD8E2] transition-colors">
               Buy Now — AU
@@ -617,7 +617,7 @@ function Order() {
             <div className="text-4xl mb-4">🇺🇸🇨🇦</div>
             <h3 className="text-xl font-bold text-[#F0EFE8] mb-2 group-hover:text-[#5FD8E2] transition-colors">USA &amp; Canada</h3>
             <p className="text-[#888880] text-sm leading-relaxed mb-6">
-              Ships direct from The Carnosine Lab. Same product, same science — via our affiliate link.
+              Ships direct via the official LactiGo shop.
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[#3DC8D4]/40 text-[#3DC8D4] font-bold text-sm group-hover:border-[#3DC8D4] transition-colors">
               Buy Now — US/CA
@@ -626,6 +626,17 @@ function Order() {
               </svg>
             </div>
           </a>
+
+          <div className="block p-8 rounded-2xl border border-[#2A2A2E] bg-[#121214]/50 text-left opacity-70">
+            <div className="text-4xl mb-4">🇪🇺</div>
+            <h3 className="text-xl font-bold text-[#F0EFE8] mb-2">Europe</h3>
+            <p className="text-[#888880] text-sm leading-relaxed mb-6">
+              EU shipping is coming soon. Get in touch to be notified at launch.
+            </p>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[#2A2A2E] text-[#888880] font-bold text-sm">
+              Coming Soon
+            </div>
+          </div>
         </div>
 
         <p className="mt-8 text-xs text-[#555550]">
