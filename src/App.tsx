@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { BlogPage, BlogPostPage, LandingPage, TopicalCarnosineGelPage, LactigoAustraliaPage } from "./pages";
@@ -16,6 +17,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </ErrorBoundary>
+      <Analytics />
     </ThemeProvider>
   );
 }
