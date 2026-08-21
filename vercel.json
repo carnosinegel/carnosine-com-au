@@ -3,6 +3,10 @@
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
+    { "source": "/blog", "destination": "/api/render?path=/blog" },
+    { "source": "/blog/:slug", "destination": "/api/render?path=/blog/:slug" },
+    { "source": "/lactigo-australia", "destination": "/api/render?path=/lactigo-australia" },
+    { "source": "/topical-carnosine-gel-australia", "destination": "/api/render?path=/topical-carnosine-gel-australia" },
     {
       "source": "/((?!assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|favicon\\.png|logo\\.png|og-image\\.png).*)",
       "destination": "/index.html"
