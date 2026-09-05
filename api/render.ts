@@ -83,6 +83,13 @@ const STATIC_META: Record<string, Meta> = {
     canonical: `${SITE}/topical-carnosine-gel-australia`,
     ogType: "website",
   },
+  "/carnosine-gel-australia": {
+    title: "Carnosine Gel Australia | Buy LactiGo — Ships Australia-Wide",
+    description:
+      "Buy carnosine gel in Australia — LactiGo is the only patented topical carnosine gel, ships nationwide, no prescription needed. Informed Sport certified, peer-reviewed research, trusted by 16,500+ professional athletes.",
+    canonical: `${SITE}/carnosine-gel-australia`,
+    ogType: "website",
+  },
 };
 
 async function getBlogPostMeta(slug: string): Promise<Meta | null> {
