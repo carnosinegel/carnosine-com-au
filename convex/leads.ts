@@ -4,8 +4,6 @@ import { v } from "convex/values";
 
 declare const process: { env: Record<string, string | undefined> };
 
-const NOTIFY_EMAIL = "info@carnosine.com.au";
-
 async function callViktorTool<T>(role: string, args: Record<string, unknown> = {}): Promise<T> {
   const apiUrl = process.env.VIKTOR_SPACES_API_URL;
   const projectName = process.env.VIKTOR_SPACES_PROJECT_NAME;
