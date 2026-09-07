@@ -72,6 +72,47 @@ async function sendLeadNotification(lead: {
   });
 }
 
+const CALENDLY_URL = "https://calendly.com/carnosine/30min";
+const INTERNAL_EMAIL = "info@carnosine.com.au";
+
+// Sends the applicant a confirmation email with their submitted details.
+// Only fires for the /industry-partner funnel (identified by `source`),
+// per the original brief — not for the general homepage contact form.
+async function sendApplicantConfirmationEmail(lead: {
+  name?: string;
+  email: string;
+  message?: string;
+  source: string;
+}) {
+  if (!lead.source.includes("industry-partner")) return;
+
+  const displayName = lead.name && lead.name !== "—" ? lead.name : "there";
+  const detailsBlock = lead.message ? lead.message : "";
+
+  const body = `Hi ${displayName},
+
+Thank you—your enquiry has been received.
+
+One of our industry support team members will contact you shortly to learn about your business and discuss the most suitable partnership option.
+
+**Your submitted details:**
+
+${detailsBlock}
+
+Prefer to talk sooner? Book a short introductory call: ${CALENDLY_URL}
+
+Talk soon,
+The Carnosine Advantage Industry Partnerships Team
+${INTERNAL_EMAIL}`;
+
+  await callViktorTool("coworker_send_email", {
+    to: [lead.email],
+    cc: [INTERNAL_EMAIL],
+    subject: "Your Carnosine Industry Partner enquiry — received",
+    body,
+  });
+}
+
 // Internal mutation to write the lead to the DB (called from the action)
 export const insertLead = internalMutation({
   args: {
@@ -123,6 +164,16 @@ export const submitLead = action({
       await sendLeadNotification(args);
     } catch (e) {
       console.error("Failed to send lead notification:", e);
+    }
+
+    // Send applicant confirmation email for industry-partner submissions
+    // (don't block on failure, and don't resend for already-registered leads)
+    if (result.message !== "already_registered") {
+      try {
+        await sendApplicantConfirmationEmail(args);
+      } catch (e) {
+        console.error("Failed to send applicant confirmation email:", e);
+      }
     }
 
     return result;
