@@ -72,6 +72,43 @@ async function sendLeadNotification(lead: {
   });
 }
 
+// Emails the full lead details to the internal inbox (info@carnosine.com.au)
+// so leads land in email too, not just Slack.
+async function sendInternalLeadEmail(lead: {
+  name?: string;
+  email: string;
+  phone?: string;
+  interest: string;
+  message?: string;
+  source: string;
+  market: string;
+}) {
+  const interestLabel: Record<string, string> = {
+    product: "Product",
+    opportunity: "Business Opportunity",
+    practitioner: "Practitioner",
+    general: "General Enquiry",
+    "industry-partner": "Industry Partner",
+  };
+
+  const lines = [
+    `Name: ${lead.name || "—"}`,
+    `Email: ${lead.email}`,
+    `Phone: ${lead.phone || "—"}`,
+    `Interested in: ${interestLabel[lead.interest] ?? lead.interest}`,
+    `Market: ${lead.market.toUpperCase()}`,
+    lead.message ? `Details:\n${lead.message}` : null,
+    ``,
+    `Source: ${lead.source}`,
+  ].filter((l) => l !== null).join("\n");
+
+  await callViktorTool("coworker_send_email", {
+    to: [INTERNAL_EMAIL],
+    subject: `New lead — ${lead.name || lead.email} (carnosine.com.au)`,
+    body: lines,
+  });
+}
+
 const CALENDLY_URL = "https://calendly.com/carnosine/30min";
 const INTERNAL_EMAIL = "info@carnosine.com.au";
 
@@ -164,6 +201,15 @@ export const submitLead = action({
       await sendLeadNotification(args);
     } catch (e) {
       console.error("Failed to send lead notification:", e);
+    }
+
+    // Email the full lead details to the internal inbox too (don't block on failure)
+    if (result.message !== "already_registered") {
+      try {
+        await sendInternalLeadEmail(args);
+      } catch (e) {
+        console.error("Failed to send internal lead email:", e);
+      }
     }
 
     // Send applicant confirmation email for industry-partner submissions
