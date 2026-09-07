@@ -1,10 +1,11 @@
 export { BlogPage } from "./BlogPage";
 export { BlogPostPage } from "./BlogPostPage";
+export { CarnosineGelAustraliaPage } from "./CarnosineGelAustraliaPage";
 export { DashboardPage } from "./DashboardPage";
+export { IndustryPartnerPage } from "./IndustryPartnerPage";
+export { LactigoAustraliaPage } from "./LactigoAustraliaPage";
 export { LandingPage } from "./LandingPage";
 export { LoginPage } from "./LoginPage";
 export { SettingsPage } from "./SettingsPage";
 export { SignupPage } from "./SignupPage";
 export { TopicalCarnosineGelPage } from "./TopicalCarnosineGelPage";
-export { LactigoAustraliaPage } from "./LactigoAustraliaPage";
-export { CarnosineGelAustraliaPage } from "./CarnosineGelAustraliaPage";
