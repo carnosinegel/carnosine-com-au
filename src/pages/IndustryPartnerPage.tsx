@@ -210,6 +210,15 @@ export function IndustryPartnerPage() {
         <MoleculeMotif className="hidden md:block absolute -top-4 right-4 w-40 h-40 opacity-70" />
         <MoleculeMotif className="md:hidden absolute -top-2 right-2 w-24 h-24 opacity-60" />
         <div className="max-w-3xl mx-auto text-center relative">
+          <p
+            className="font-black mb-3"
+            style={{
+              color: ORANGE,
+              fontSize: "clamp(1.1rem, 3.6vw, 1.4rem)",
+            }}
+          >
+            Thanks for stopping by our booth at the Expo!
+          </p>
           <div
             className="inline-block text-[11px] font-bold tracking-[0.18em] uppercase mb-5 px-3 py-1.5 rounded-full"
             style={{
