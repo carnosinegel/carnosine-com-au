@@ -39,7 +39,7 @@
  */
 
 const SITE = "https://www.carnosine.com.au";
-const CONVEX_QUERY_URL = "https://woozy-bass-459.convex.cloud/api/query";
+const CONVEX_QUERY_URL = "https://zealous-otter-995.convex.cloud/api/query";
 
 interface Meta {
   title: string;
