@@ -19,12 +19,12 @@ export function Header() {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
             <img
-              src="/logo.png"
-              alt="The Carnosine Lab"
+              src="/favicon.png"
+              alt="Carnosine Advantage"
               className="h-10 w-10 rounded-md object-contain"
             />
             <span className="hidden sm:inline font-bold text-lg tracking-tight text-foreground">
-              The Carnosine Lab
+              Carnosine Advantage
             </span>
           </Link>
 
