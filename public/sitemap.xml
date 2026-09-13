@@ -64,6 +64,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.carnosine.com.au/blog/tactical-athletes-carnosine-research</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.carnosine.com.au/blog/carnosine-and-recovery</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
