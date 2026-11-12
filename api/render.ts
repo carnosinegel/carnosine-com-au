@@ -38,7 +38,7 @@
  * build log, but not blocking anything as of this fix.
  */
 
-import { PRERENDER, FAQS } from "./_prerender-content";
+import { PRERENDER, FAQS } from "./_prerender-content.js";
 
 const SITE = "https://www.carnosine.com.au";
 const CONVEX_QUERY_URL = "https://zealous-otter-995.convex.cloud/api/query";
