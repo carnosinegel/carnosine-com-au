@@ -245,9 +245,9 @@ function ScienceStrip() {
           </h2>
           <p className="text-[#888880] max-w-2xl mx-auto leading-relaxed">
             Carnosine is a dipeptide found naturally in human muscle. As you push harder, hydrogen ions
-            accumulate — carnosine neutralises them, delaying the burn and extending your output.
+            accumulate. Carnosine buffers them, helping delay the burn and extending your output.
             The problem: oral supplements are destroyed before reaching muscle. Topical carnosine
-            solves that — straight through the skin, direct to the tissue.
+            solves that by going on the skin over the working muscle.
           </p>
         </div>
 
@@ -256,19 +256,19 @@ function ScienceStrip() {
             {
               icon: "⚡",
               title: "Delay the Burn",
-              desc: "Supports hydrogen ion buffering during high-intensity effort — helping sustain output in the moments that matter most.",
+              desc: "Supports hydrogen ion buffering during high-intensity effort, helping sustain output in the moments that matter most.",
               stat: "300% more carnosine delivery vs oral",
             },
             {
               icon: "🎯",
-              title: "Direct to Muscle",
-              desc: "Applied to the skin over the working muscle. Bypasses digestion, no gut issues, no loading phase. Active in 30 minutes. Science-backed transdermal absorption.",
+              title: "Targeted Application",
+              desc: "Rubbed on over the working muscle. Bypasses digestion, no gut issues, no loading phase. Use about 30 minutes before training. Backed by published research.",
               stat: "50–100% increase in muscle carnosine",
             },
             {
               icon: "🏆",
               title: "Proven at the Highest Level",
-              desc: "Used by Olympic athletes, NHL teams, NFL players and NBA franchises. Informed Sport certified — every batch tested for banned substances.",
+              desc: "Used by Olympic athletes, NHL teams, NFL players and NBA franchises. Informed Sport certified. Every batch tested for banned substances.",
               stat: "16,500+ elite athletes worldwide",
             },
           ].map((card) => (
@@ -312,7 +312,7 @@ function Product() {
           </h2>
           <p className="text-[#888880] max-w-xl mx-auto">
             Apply to working muscles before training or competition. No pills, no gut load, no waiting.
-            Informed Sport certified — safe for competitive athletes.
+            Informed Sport certified, safe for competitive athletes.
           </p>
         </div>
 
@@ -322,7 +322,7 @@ function Product() {
           <div>
             <div className="text-sm font-bold text-[#F0EFE8] mb-1">Informed Sport Certified</div>
             <p className="text-xs text-[#888880] leading-relaxed">
-              Every batch is independently tested for banned substances under the Informed Sport programme —
+              Every batch is independently tested for banned substances under the Informed Sport programme:
               the global standard for athlete-safe supplementation. WADA compliant.
             </p>
           </div>
@@ -400,7 +400,7 @@ function SocialProof() {
             {
               number: "300%",
               claim: "More carnosine delivered to muscle vs oral in published research",
-              source: "Peer-reviewed transdermal delivery study — see Science page",
+              source: "Peer-reviewed topical delivery study, see Science page",
             },
             {
               number: "50–100%",
@@ -437,7 +437,7 @@ function Practitioners() {
             Built for performance.<br />Relevant to practice.
           </h2>
           <p className="text-[#888880] max-w-2xl mx-auto leading-relaxed">
-            Carnosine isn't just a sports compound — it's one of the most researched dipeptides in
+            Carnosine isn't just a sports compound. It's one of the most researched dipeptides in
             human physiology. Relevant across fatigue, recovery, healthy ageing, and cellular protection.
           </p>
         </div>
@@ -445,8 +445,8 @@ function Practitioners() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
           {[
             { icon: "🔬", title: "Fatigue & Recovery", desc: "pH buffering support for athletes and active people in structured training, rehab, or recovery programmes." },
-            { icon: "🦴", title: "Rehab & Return to Play", desc: "Topical application to specific muscle groups — no systemic load, no gut issues, targeted support where it's needed." },
-            { icon: "🧠", title: "Neuromuscular Research", desc: "Carnosine is one of the most researched dipeptides in human physiology — with published links to neuromuscular signalling and antioxidant activity." },
+            { icon: "🦴", title: "Rehab & Return to Play", desc: "Topical application to specific muscle groups, no systemic load, no gut issues, targeted support where it's needed." },
+            { icon: "🧠", title: "Neuromuscular Research", desc: "Carnosine is one of the most researched dipeptides in human physiology, with published links to neuromuscular signalling and antioxidant activity." },
             { icon: "⏳", title: "Healthy Ageing", desc: "Anti-glycation and antioxidant properties make carnosine biologically relevant to active ageing and long-term muscle health." },
           ].map((card) => (
             <div key={card.title} className="p-7 rounded-xl border border-[#2A2A2E] bg-[#121214] hover:border-[#3DC8D4]/30 transition-colors group">
@@ -484,7 +484,7 @@ function Practitioners() {
               Are you a practitioner?<br />Let's talk.
             </h3>
             <p className="text-[#888880] text-sm leading-relaxed mb-6">
-              We have a dedicated pathway for health professionals — product access, clinical education,
+              We have a dedicated pathway for health professionals: product access, clinical education,
               and a practitioner partnership programme for clinics wanting to recommend or stock topical carnosine.
             </p>
             <div className="space-y-3">
@@ -520,7 +520,7 @@ function Opportunity() {
             <p className="text-[#888880] leading-relaxed mb-8">
               The Australian carnosine market is wide open. We're building a team who understand
               performance and physiology, trust the science, and want to build something real.
-              This isn't a side hustle pitch — it's an early position in a growing market.
+              This isn't a side hustle pitch. It's an early position in a growing market.
             </p>
             <div className="space-y-4 mb-10">
               {[
@@ -555,7 +555,7 @@ function Opportunity() {
             <div className="text-4xl mb-4 text-[#3DC8D4]">"</div>
             <p className="text-[#F0EFE8] text-lg font-medium leading-relaxed mb-6">
               The science is 40 years deep. The delivery is new. The Australian market is
-              open. We're at the start of something — and we're looking for people who
+              open. We're at the start of something, and we're looking for people who
               see it before everyone else does.
             </p>
             <div className="flex items-center gap-3 pt-4 border-t border-[#2A2A2E]">
@@ -585,7 +585,7 @@ function Order() {
           Ready to order?
         </h2>
         <p className="text-[#888880] max-w-xl mx-auto mb-12 leading-relaxed">
-          Australia, USA &amp; Canada all order through the official LactiGo shop — direct shipping, same product, same science.
+          Australia, USA &amp; Canada all order through the official LactiGo shop, with direct shipping, same product, same science.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -601,7 +601,7 @@ function Order() {
               Direct shipping to Australia via the official LactiGo shop.
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#3DC8D4] text-[#0A0A0C] font-bold text-sm group-hover:bg-[#5FD8E2] transition-colors">
-              Buy Now — AU
+              Buy Now (AU)
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -620,7 +620,7 @@ function Order() {
               Ships direct via the official LactiGo shop.
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded border border-[#3DC8D4]/40 text-[#3DC8D4] font-bold text-sm group-hover:border-[#3DC8D4] transition-colors">
-              Buy Now — US/CA
+              Buy Now (US/CA)
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -640,7 +640,7 @@ function Order() {
         </div>
 
         <p className="mt-8 text-xs text-[#555550]">
-          Somewhere else? <a href="#contact" className="text-[#3DC8D4] hover:text-[#5FD8E2] transition-colors">Get in touch</a> — we'll sort you out.
+          Somewhere else? <a href="#contact" className="text-[#3DC8D4] hover:text-[#5FD8E2] transition-colors">Get in touch</a> and we'll sort you out.
         </p>
       </div>
     </section>
@@ -685,7 +685,7 @@ function Contact() {
               Ready to talk?
             </h2>
             <p className="text-[#888880] leading-relaxed mb-8">
-              Whether you want to try the product, explore the opportunity, or have questions —
+              Whether you want to try the product, explore the opportunity, or have questions,
               reach out. Real conversations, real people.
             </p>
             <div className="space-y-4 mb-8">
@@ -755,7 +755,7 @@ function Contact() {
             {status === "done" ? (
               <div className="text-center py-12">
                 <div className="text-4xl mb-4">✅</div>
-                <p className="text-[#F0EFE8] font-semibold mb-2">Got it — we'll be in touch soon.</p>
+                <p className="text-[#F0EFE8] font-semibold mb-2">Got it, we'll be in touch soon.</p>
                 <p className="text-[#888880] text-sm">Expect a reply within 24 hours.</p>
               </div>
             ) : (
