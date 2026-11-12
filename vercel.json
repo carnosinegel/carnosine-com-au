@@ -3,6 +3,7 @@
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
+    { "source": "/", "destination": "/api/render?path=/" },
     { "source": "/blog", "destination": "/api/render?path=/blog" },
     { "source": "/blog/:slug", "destination": "/api/render?path=/blog/:slug" },
     { "source": "/lactigo-australia", "destination": "/api/render?path=/lactigo-australia" },

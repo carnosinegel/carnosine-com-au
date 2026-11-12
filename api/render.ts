@@ -38,6 +38,8 @@
  * build log, but not blocking anything as of this fix.
  */
 
+import { PRERENDER, FAQS } from "./_prerender-content";
+
 const SITE = "https://www.carnosine.com.au";
 const CONVEX_QUERY_URL = "https://zealous-otter-995.convex.cloud/api/query";
 
@@ -49,7 +51,48 @@ interface Meta {
   schema?: Record<string, unknown>;
 }
 
+const ORG = {
+  "@type": "Organization",
+  "@id": `${SITE}/#organization`,
+  name: "Carnosine Advantage",
+  alternateName: "Carnosine Performance",
+  legalName: "Carnosine Performance Pty Ltd",
+  url: SITE,
+  logo: `${SITE}/favicon.png`,
+  email: "info@carnosine.com.au",
+  areaServed: "AU",
+};
+
+const PRODUCT = {
+  "@type": "Product",
+  "@id": `${SITE}/#lactigo`,
+  name: "LactiGo Topical Carnosine Gel",
+  brand: { "@type": "Brand", name: "LactiGo" },
+  description:
+    "LactiGo is a topical carnosine gel applied to the skin over working muscles. Informed Sport certified, supplied in Australia by Carnosine Advantage.",
+  image: `${SITE}/og-image.png`,
+  url: `${SITE}/carnosine-gel-australia`,
+  seller: { "@id": `${SITE}/#organization` },
+};
+
+const LANDING_SCHEMA = { "@context": "https://schema.org", "@graph": [ORG, PRODUCT] };
+
 const STATIC_META: Record<string, Meta> = {
+  "/": {
+    title: "Carnosine Advantage | LactiGo Topical Carnosine Gel — Australia",
+    description:
+      "Carnosine Advantage is the Australian home of LactiGo — the world's only topical carnosine gel. Used by 16,500+ elite athletes across NHL, NFL, NBA and more. Informed Sport certified.",
+    canonical: `${SITE}/`,
+    ogType: "website",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        ORG,
+        { "@type": "WebSite", "@id": `${SITE}/#website`, url: SITE, name: "Carnosine Advantage", inLanguage: "en-AU", publisher: { "@id": `${SITE}/#organization` } },
+        PRODUCT,
+      ],
+    },
+  },
   "/blog": {
     title: "Carnosine Science Journal | Research & Athlete Guides — Carnosine Advantage",
     description:
@@ -75,6 +118,7 @@ const STATIC_META: Record<string, Meta> = {
       "LactiGo is the world's only patented topical carnosine gel — applied to the skin over working muscles. Peer-reviewed, Informed Sport certified, trusted by 16,500+ professional athletes across the NHL, NFL, NBA and beyond. Now available in Australia.",
     canonical: `${SITE}/lactigo-australia`,
     ogType: "website",
+    schema: LANDING_SCHEMA,
   },
   "/topical-carnosine-gel-australia": {
     title: "Topical Carnosine Gel Australia | LactiGo — Peer-Reviewed, Certified",
@@ -82,6 +126,7 @@ const STATIC_META: Record<string, Meta> = {
       "LactiGo is the world's only patented topical carnosine-based gel, applied directly to the skin over working muscles. Backed by published research, Informed Sport certified, used by 16,500+ professional athletes worldwide. Now available in Australia.",
     canonical: `${SITE}/topical-carnosine-gel-australia`,
     ogType: "website",
+    schema: LANDING_SCHEMA,
   },
   "/carnosine-gel-australia": {
     title: "Carnosine Gel Australia | Buy LactiGo — Ships Australia-Wide",
@@ -89,6 +134,7 @@ const STATIC_META: Record<string, Meta> = {
       "Buy carnosine gel in Australia — LactiGo is the only patented topical carnosine gel, ships nationwide, no prescription needed. Informed Sport certified, peer-reviewed research, trusted by 16,500+ professional athletes.",
     canonical: `${SITE}/carnosine-gel-australia`,
     ogType: "website",
+    schema: LANDING_SCHEMA,
   },
 };
 
@@ -205,6 +251,58 @@ async function resolveMeta(path: string): Promise<Meta | null> {
   return STATIC_META[path] ?? null;
 }
 
+function faqSchema(path: string): Record<string, unknown> | null {
+  const q = FAQS[path];
+  if (!q || !q.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: q.map(([name, text]) => ({
+      "@type": "Question",
+      name,
+      acceptedAnswer: { "@type": "Answer", text },
+    })),
+  };
+}
+
+async function convexQuery(path: string, args: Record<string, unknown>): Promise<any> {
+  const res = await fetch(CONVEX_QUERY_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path, args, format: "json" }),
+  });
+  if (!res.ok) return null;
+  const data = (await res.json()) as { status: string; value: unknown };
+  return data.status === "success" ? data.value : null;
+}
+
+const NAV =
+  `<nav><a href="/">Home</a> <a href="/carnosine-gel-australia">Carnosine gel Australia</a> <a href="/topical-carnosine-gel-australia">Topical carnosine gel</a> <a href="/lactigo-australia">LactiGo Australia</a> <a href="/blog">Science journal</a></nav>`;
+
+/** Visible-copy fallback placed inside #root. React replaces it when the app mounts. */
+async function buildBody(path: string): Promise<string | null> {
+  try {
+    if (path.startsWith("/blog/") && path !== "/blog/") {
+      const post = await convexQuery("blog:getBySlug", { slug: path.slice(6) });
+      if (!post) return null;
+      return `${NAV}<main><article><h1>${escapeHtml(post.title)}</h1><p>${escapeHtml(post.excerpt || "")}</p>${post.content}<p><a href="/blog">All articles</a> · <a href="/carnosine-gel-australia">Carnosine gel in Australia</a></p></article></main>`;
+    }
+    if (path === "/blog") {
+      const posts = (await convexQuery("blog:list", {})) as any[] | null;
+      if (!posts) return null;
+      const items = posts
+        .map((p) => `<li><h2><a href="/blog/${escapeHtml(p.slug)}">${escapeHtml(p.title)}</a></h2><p>${escapeHtml(p.excerpt || "")}</p></li>`)
+        .join("");
+      return `${NAV}<main><h1>Carnosine Science Journal</h1><ul>${items}</ul></main>`;
+    }
+    const frag = PRERENDER[path];
+    if (!frag) return null;
+    return `${NAV}<main>${frag}</main>`;
+  } catch {
+    return null;
+  }
+}
+
 export default async function handler(req: any, res: any) {
   const proto = (req.headers["x-forwarded-proto"] as string) || "https";
   const host = req.headers.host as string;
@@ -214,20 +312,29 @@ export default async function handler(req: any, res: any) {
   try {
     // Fetch the site's own built shell (same index.html served for every
     // SPA route) from "/", which is never rewritten to this function.
-    const shellResp = await fetch(`${origin}/`);
+    const shellResp = await fetch(`${origin}/index.html`);
     let html = await shellResp.text();
 
     const meta = await resolveMeta(rawPath);
     if (meta) {
       html = injectMeta(html, meta);
     }
+    const faq = faqSchema(rawPath);
+    if (faq) {
+      html = html.replace("</head>", `<script type="application/ld+json">${JSON.stringify(faq)}</script></head>`);
+    }
+    const body = await buildBody(rawPath);
+    if (body) {
+      html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+    }
+    res.setHeader("cache-control", "public, s-maxage=600, stale-while-revalidate=86400");
 
     res.setHeader("content-type", "text/html; charset=utf-8");
     res.status(200).send(html);
   } catch {
     // Fail open: best effort to still serve something rather than error out.
     try {
-      const shellResp = await fetch(`${origin}/`);
+      const shellResp = await fetch(`${origin}/index.html`);
       const html = await shellResp.text();
       res.setHeader("content-type", "text/html; charset=utf-8");
       res.status(200).send(html);
