@@ -312,7 +312,7 @@ export default async function handler(req: any, res: any) {
   try {
     // Fetch the site's own built shell (same index.html served for every
     // SPA route) from "/", which is never rewritten to this function.
-    const shellResp = await fetch(`${origin}/index.html`);
+    const shellResp = await fetch(`${origin}/shell.html`);
     let html = await shellResp.text();
 
     const meta = await resolveMeta(rawPath);
@@ -334,7 +334,7 @@ export default async function handler(req: any, res: any) {
   } catch {
     // Fail open: best effort to still serve something rather than error out.
     try {
-      const shellResp = await fetch(`${origin}/index.html`);
+      const shellResp = await fetch(`${origin}/shell.html`);
       const html = await shellResp.text();
       res.setHeader("content-type", "text/html; charset=utf-8");
       res.status(200).send(html);

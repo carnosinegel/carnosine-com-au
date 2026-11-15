@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx vite build",
+  "buildCommand": "npx vite build && mv dist/index.html dist/shell.html",
   "outputDirectory": "dist",
   "framework": null,
   "rewrites": [
@@ -11,7 +11,7 @@
     { "source": "/carnosine-gel-australia", "destination": "/api/render?path=/carnosine-gel-australia" },
     {
       "source": "/((?!assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|favicon\\.png|logo\\.png|og-image\\.png).*)",
-      "destination": "/index.html"
+      "destination": "/shell.html"
     }
   ]
 }
