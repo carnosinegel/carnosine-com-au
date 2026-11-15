@@ -8,6 +8,7 @@
     { "source": "/blog/:slug", "destination": "/api/render?path=/blog/:slug" },
     { "source": "/lactigo-australia", "destination": "/api/render?path=/lactigo-australia" },
     { "source": "/topical-carnosine-gel-australia", "destination": "/api/render?path=/topical-carnosine-gel-australia" },
+    { "source": "/about", "destination": "/api/render?path=/about" },
     { "source": "/carnosine-gel-australia", "destination": "/api/render?path=/carnosine-gel-australia" },
     {
       "source": "/((?!assets/|robots\\.txt|sitemap\\.xml|llms\\.txt|favicon\\.png|logo\\.png|og-image\\.png).*)",

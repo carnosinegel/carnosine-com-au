@@ -903,6 +903,7 @@ function Footer() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-6 text-xs" style={{ color: "var(--muted-foreground)" }}>
             <Link to="/blog" className="hover:text-[#3DC8D4] transition-colors">Blog</Link>
+            <Link to="/about" className="hover:text-[#3DC8D4] transition-colors">About</Link>
             <a href={LINKS.carnosinelab} target="_blank" rel="noopener noreferrer" className="hover:text-[#3DC8D4] transition-colors">The Carnosine Lab</a>
             <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-[#3DC8D4] transition-colors">Instagram</a>
             <a href={`mailto:${CONTACT.email}`} className="hover:text-[#3DC8D4] transition-colors">{CONTACT.email}</a>

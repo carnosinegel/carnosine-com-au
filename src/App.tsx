@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./context/ThemeContext";
 import {
+  AboutPage,
   BlogPage,
   BlogPostPage,
   CarnosineGelAustraliaPage,
@@ -29,6 +30,7 @@ function App() {
             path="/carnosine-gel-australia"
             element={<CarnosineGelAustraliaPage />}
           />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/industry-partner" element={<IndustryPartnerPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

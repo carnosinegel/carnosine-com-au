@@ -1,3 +1,4 @@
+export { AboutPage } from "./AboutPage";
 export { BlogPage } from "./BlogPage";
 export { BlogPostPage } from "./BlogPostPage";
 export { CarnosineGelAustraliaPage } from "./CarnosineGelAustraliaPage";

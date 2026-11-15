@@ -128,6 +128,20 @@ const STATIC_META: Record<string, Meta> = {
     ogType: "website",
     schema: LANDING_SCHEMA,
   },
+  "/about": {
+    title: "About Carnosine Advantage | Australian LactiGo Distributor",
+    description:
+      "Carnosine Advantage (Carnosine Performance Pty Ltd) is the Australian distributor and promoter of LactiGo topical carnosine gel. Who we are, where our claims come from, and how we write.",
+    canonical: `${SITE}/about`,
+    ogType: "website",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      name: "About Carnosine Advantage",
+      url: `${SITE}/about`,
+      mainEntity: { "@id": `${SITE}/#organization` },
+    },
+  },
   "/carnosine-gel-australia": {
     title: "Carnosine Gel Australia | Buy LactiGo — Ships Australia-Wide",
     description:
@@ -277,7 +291,7 @@ async function convexQuery(path: string, args: Record<string, unknown>): Promise
 }
 
 const NAV =
-  `<nav><a href="/">Home</a> <a href="/carnosine-gel-australia">Carnosine gel Australia</a> <a href="/topical-carnosine-gel-australia">Topical carnosine gel</a> <a href="/lactigo-australia">LactiGo Australia</a> <a href="/blog">Science journal</a></nav>`;
+  `<nav><a href="/">Home</a> <a href="/carnosine-gel-australia">Carnosine gel Australia</a> <a href="/topical-carnosine-gel-australia">Topical carnosine gel</a> <a href="/lactigo-australia">LactiGo Australia</a> <a href="/blog">Science journal</a> <a href="/about">About</a></nav>`;
 
 /** Visible-copy fallback placed inside #root. React replaces it when the app mounts. */
 async function buildBody(path: string): Promise<string | null> {
