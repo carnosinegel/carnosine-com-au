@@ -574,6 +574,56 @@ function Opportunity() {
   );
 }
 
+// ─── Explore + FAQ ───────────────────────────────────────────────────────────
+
+const EXPLORE: { to: string; title: string; desc: string }[] = [
+  { to: "/carnosine-gel-australia", title: "Carnosine gel in Australia", desc: "What topical carnosine gel is and how to buy it in Australia." },
+  { to: "/lactigo-australia", title: "LactiGo Australia", desc: "The LactiGo range, certification and where it is sold locally." },
+  { to: "/topical-carnosine-gel-australia", title: "Topical carnosine gel explained", desc: "How a topical carnosine gel differs from oral carnosine and beta-alanine." },
+  { to: "/blog/what-is-carnosine", title: "What is carnosine?", desc: "The science behind muscle performance, in plain English." },
+  { to: "/blog/rugby-sevens-study", title: "The rugby sevens study", desc: "What happened when elite athletes used topical carnosine." },
+  { to: "/blog/carnosine-vs-beta-alanine", title: "Carnosine vs beta-alanine", desc: "What the difference is and which one suits you." },
+  { to: "/blog/why-topical-delivery", title: "Why topical delivery?", desc: "Why oral carnosine is limited and what topical changes." },
+  { to: "/blog/carnosine-and-recovery", title: "Carnosine and recovery", desc: "The role in recovery most people overlook." },
+];
+
+const HOME_FAQ: [string, string][] = [
+  ["What is LactiGo?", "LactiGo is a topical carnosine gel for athletes and active people, distributed in Australia by Carnosine Advantage. It is applied to the skin over the muscles you are training."],
+  ["Is LactiGo Informed Sport certified?", "Yes. LactiGo is Informed Sport certified, which means it is tested for substances prohibited in sport."],
+  ["How do I use topical carnosine gel?", "Apply it to the target muscles roughly 30 to 45 minutes before activity, and again after exercise. Follow the directions on the pack."],
+  ["What is the difference between carnosine and beta-alanine?", "Beta-alanine is an amino acid taken orally that the body uses to build carnosine in muscle. Carnosine is the molecule itself. A topical gel applies carnosine to the skin instead of relying on oral supplements."],
+  ["Where can I buy LactiGo in Australia?", "You can order directly through carnosine.com.au. Practitioners, gyms and clubs can also contact us about becoming a partner."],
+];
+
+function ExploreFaq() {
+  return (
+    <section id="learn-more" className="py-24 bg-[#0A0A0C] border-t border-[#1A1A1E]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-xs text-[#3DC8D4] font-medium tracking-widest uppercase mb-4">Learn More</div>
+        <h2 className="text-3xl md:text-4xl font-black text-[#F0EFE8] mb-10 leading-tight">Explore the research and the gel</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+          {EXPLORE.map((e) => (
+            <Link key={e.to} to={e.to} className="block rounded-xl border border-[#1A1A1E] bg-[#0C0C0E] p-5 hover:border-[#3DC8D4] transition-colors">
+              <div className="text-[#F0EFE8] font-bold mb-2">{e.title}</div>
+              <p className="text-sm text-[#8A8A92] leading-relaxed">{e.desc}</p>
+            </Link>
+          ))}
+        </div>
+        <h2 className="text-3xl font-black text-[#F0EFE8] mb-8">Common questions</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {HOME_FAQ.map(([q, a]) => (
+            <div key={q}>
+              <h3 className="text-lg font-bold text-[#F0EFE8] mb-2">{q}</h3>
+              <p className="text-[#8A8A92] leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-10 text-sm"><Link to="/blog" className="text-[#3DC8D4] hover:underline">Browse all articles</Link></p>
+      </div>
+    </section>
+  );
+}
+
 // ─── Order ───────────────────────────────────────────────────────────────────
 
 function Order() {
@@ -880,6 +930,7 @@ export function LandingPage() {
       <Product />
       <Practitioners />
       <Opportunity />
+      <ExploreFaq />
       <Order />
       <Contact />
       <Footer />
